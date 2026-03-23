@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSCS Governance Stress Test (GSAT™)</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Inter, Arial, sans-serif;
+  background:#08111f;
+  color:#edf3ff;
+}
+
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1 {
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.sub {
+  color:#9cb0d0;
+  margin-bottom:40px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.panel {
+  background:#0d1728;
+  padding:25px;
+  border-radius:14px;
+}
+
+label {
+  display:block;
+  margin-top:15px;
+  font-size:14px;
+  color:#9cb0d0;
+}
+
+input[type=range] {
+  width:100%;
+}
+
+.score {
+  font-size:48px;
+  font-weight:bold;
+}
+
+.badge {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:8px;
+  margin-top:10px;
+  background:#1a2742;
+}
+
+.result {
+  margin-top:20px;
+  font-size:16px;
+  color:#9cb0d0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>GSAT™ Governance Stress Test</h1>
+<div class="sub">Governance Stress Assessment & Transmission</div>
+
+<div class="grid">
+
+<!-- INPUT -->
+<div class="panel">
+
+<h3>Governance Inputs</h3>
+
+<label>Escalation Effectiveness</label>
+<input type="range" min="1" max="5" value="3" id="esc">
+
+<label>Capital & Clearing Integration</label>
+<input type="range" min="1" max="5" value="3" id="cap">
+
+<label>Dependency Exposure</label>
+<input type="range" min="1" max="5" value="3" id="dep">
+
+<label>Product Governance</label>
+<input type="range" min="1" max="5" value="3" id="prod">
+
+<label>Decision Authority</label>
+<input type="range" min="1" max="5" value="3" id="dec">
+
+</div>
+
+<!-- OUTPUT -->
+<div class="panel">
+
+<h3>GSAT Output</h3>
+
+<div class="score" id="score">15</div>
+
+<div class="badge" id="grr">GRR-B (Adequate)</div>
+<div class="badge" id="trm">TRM: Moderate</div>
+
+<div class="result" id="text">
+Governance remains functional but vulnerable under stress.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function calc() {
+  let esc = +document.getElementById("esc").value;
+  let cap = +document.getElementById("cap").value;
+  let dep = +document.getElementById("dep").value;
+  let prod = +document.getElementById("prod").value;
+  let dec = +document.getElementById("dec").value;
+
+  let score = esc + cap + dep + prod + dec;
+
+  document.getElementById("score").innerText = score;
+
+  let grr = "";
+  if(score >= 21) grr = "GRR-A (Strong)";
+  else if(score >=16) grr = "GRR-B (Adequate)";
+  else if(score >=11) grr = "GRR-C (Vulnerable)";
+  else grr = "GRR-D (Deficient)";
+
+  document.getElementById("grr").innerText = grr;
+
+  let trm = dep >=4 ? "High" : dep >=3 ? "Moderate" : "Low";
+  document.getElementById("trm").innerText = "TRM: " + trm;
+
+  let text = "";
+  if(score >=21) text = "Governance is strong and resilient under stress.";
+  else if(score >=16) text = "Governance remains functional but shows pressure under stress.";
+  else if(score >=11) text = "Governance is vulnerable and may fail under stress conditions.";
+  else text = "Governance is structurally deficient.";
+
+  document.getElementById("text").innerText = text;
+}
+
+document.querySelectorAll("input").forEach(el => {
+  el.addEventListener("input", calc);
+});
+
+</script>
+
+</body>
+</html>
