@@ -1,9 +1,10 @@
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HSCS Governance Stress Test (GSAT™)</title>
+<title>GSAT™ Governance Stress Test</title>
 
 <style>
 body {
@@ -14,14 +15,14 @@ body {
 }
 
 .container {
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
-  padding:40px 20px;
+  padding:50px 20px;
 }
 
 h1 {
-  font-size:42px;
-  margin-bottom:10px;
+  font-size:44px;
+  margin-bottom:5px;
 }
 
 .sub {
@@ -37,13 +38,13 @@ h1 {
 
 .panel {
   background:#0d1728;
-  padding:25px;
-  border-radius:14px;
+  padding:30px;
+  border-radius:16px;
 }
 
 label {
   display:block;
-  margin-top:15px;
+  margin-top:18px;
   font-size:14px;
   color:#9cb0d0;
 }
@@ -53,14 +54,14 @@ input[type=range] {
 }
 
 .score {
-  font-size:48px;
+  font-size:56px;
   font-weight:bold;
 }
 
 .badge {
   display:inline-block;
-  padding:6px 12px;
-  border-radius:8px;
+  padding:8px 14px;
+  border-radius:10px;
   margin-top:10px;
   background:#1a2742;
 }
@@ -69,6 +70,11 @@ input[type=range] {
   margin-top:20px;
   font-size:16px;
   color:#9cb0d0;
+}
+
+.section-title {
+  font-size:20px;
+  margin-bottom:10px;
 }
 </style>
 </head>
@@ -82,10 +88,10 @@ input[type=range] {
 
 <div class="grid">
 
-<!-- INPUT -->
+<!-- INPUT PANEL -->
 <div class="panel">
 
-<h3>Governance Inputs</h3>
+<div class="section-title">Core Governance Inputs</div>
 
 <label>Escalation Effectiveness</label>
 <input type="range" min="1" max="5" value="3" id="esc">
@@ -96,7 +102,7 @@ input[type=range] {
 <label>Dependency Exposure</label>
 <input type="range" min="1" max="5" value="3" id="dep">
 
-<label>Product Governance</label>
+<label>Product & Structural Governance</label>
 <input type="range" min="1" max="5" value="3" id="prod">
 
 <label>Decision Authority</label>
@@ -104,10 +110,10 @@ input[type=range] {
 
 </div>
 
-<!-- OUTPUT -->
+<!-- OUTPUT PANEL -->
 <div class="panel">
 
-<h3>GSAT Output</h3>
+<div class="section-title">Supervisory Output</div>
 
 <div class="score" id="score">15</div>
 
@@ -115,7 +121,7 @@ input[type=range] {
 <div class="badge" id="trm">TRM: Moderate</div>
 
 <div class="result" id="text">
-Governance remains functional but vulnerable under stress.
+Governance remains functional but shows pressure under stress.
 </div>
 
 </div>
@@ -164,4 +170,4 @@ document.querySelectorAll("input").forEach(el => {
 </script>
 
 </body>
-</html>
+</html
