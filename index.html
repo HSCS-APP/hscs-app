@@ -1,173 +1,170 @@
-}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GSAT™ Governance Stress Test</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GSAT™ Governance Stress Test</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #08111f;
+      color: #edf3ff;
+    }
 
-<style>
-body {
-  margin:0;
-  font-family: Inter, Arial, sans-serif;
-  background:#08111f;
-  color:#edf3ff;
-}
+    .container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 50px 20px;
+    }
 
-.container {
-  max-width:1300px;
-  margin:auto;
-  padding:50px 20px;
-}
+    h1 {
+      font-size: 44px;
+      margin-bottom: 5px;
+    }
 
-h1 {
-  font-size:44px;
-  margin-bottom:5px;
-}
+    .sub {
+      color: #9cb0d0;
+      margin-bottom: 40px;
+    }
 
-.sub {
-  color:#9cb0d0;
-  margin-bottom:40px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
 
-.grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
+    .panel {
+      background: #0d1728;
+      padding: 30px;
+      border-radius: 16px;
+    }
 
-.panel {
-  background:#0d1728;
-  padding:30px;
-  border-radius:16px;
-}
+    label {
+      display: block;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #9cb0d0;
+    }
 
-label {
-  display:block;
-  margin-top:18px;
-  font-size:14px;
-  color:#9cb0d0;
-}
+    input[type="range"] {
+      width: 100%;
+    }
 
-input[type=range] {
-  width:100%;
-}
+    .score {
+      font-size: 56px;
+      font-weight: bold;
+    }
 
-.score {
-  font-size:56px;
-  font-weight:bold;
-}
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-right: 8px;
+      background: #1a2742;
+    }
 
-.badge {
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:10px;
-  margin-top:10px;
-  background:#1a2742;
-}
+    .result {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #9cb0d0;
+      line-height: 1.5;
+    }
 
-.result {
-  margin-top:20px;
-  font-size:16px;
-  color:#9cb0d0;
-}
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
 
-.section-title {
-  font-size:20px;
-  margin-bottom:10px;
-}
-</style>
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1>GSAT™ Governance Stress Test</h1>
+    <div class="sub">Governance Stress Assessment & Transmission</div>
 
-<div class="container">
+    <div class="grid">
+      <div class="panel">
+        <div class="section-title">Core Governance Inputs</div>
 
-<h1>GSAT™ Governance Stress Test</h1>
-<div class="sub">Governance Stress Assessment & Transmission</div>
+        <label for="esc">Escalation Effectiveness</label>
+        <input type="range" min="1" max="5" value="3" id="esc" />
 
-<div class="grid">
+        <label for="cap">Capital & Clearing Integration</label>
+        <input type="range" min="1" max="5" value="3" id="cap" />
 
-<!-- INPUT PANEL -->
-<div class="panel">
+        <label for="dep">Dependency Exposure</label>
+        <input type="range" min="1" max="5" value="3" id="dep" />
 
-<div class="section-title">Core Governance Inputs</div>
+        <label for="prod">Product & Structural Governance</label>
+        <input type="range" min="1" max="5" value="3" id="prod" />
 
-<label>Escalation Effectiveness</label>
-<input type="range" min="1" max="5" value="3" id="esc">
+        <label for="dec">Decision Authority</label>
+        <input type="range" min="1" max="5" value="3" id="dec" />
+      </div>
 
-<label>Capital & Clearing Integration</label>
-<input type="range" min="1" max="5" value="3" id="cap">
+      <div class="panel">
+        <div class="section-title">Supervisory Output</div>
 
-<label>Dependency Exposure</label>
-<input type="range" min="1" max="5" value="3" id="dep">
+        <div class="score" id="score">15</div>
 
-<label>Product & Structural Governance</label>
-<input type="range" min="1" max="5" value="3" id="prod">
+        <div class="badge" id="grr">GRR-C (Vulnerable)</div>
+        <div class="badge" id="trm">TRM: Moderate</div>
 
-<label>Decision Authority</label>
-<input type="range" min="1" max="5" value="3" id="dec">
+        <div class="result" id="text">
+          Governance remains functional but shows pressure under stress.
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <script>
+    function calc() {
+      const esc = Number(document.getElementById("esc").value);
+      const cap = Number(document.getElementById("cap").value);
+      const dep = Number(document.getElementById("dep").value);
+      const prod = Number(document.getElementById("prod").value);
+      const dec = Number(document.getElementById("dec").value);
 
-<!-- OUTPUT PANEL -->
-<div class="panel">
+      const score = esc + cap + dep + prod + dec;
+      document.getElementById("score").textContent = score;
 
-<div class="section-title">Supervisory Output</div>
+      let grr = "";
+      if (score >= 21) grr = "GRR-A (Strong)";
+      else if (score >= 16) grr = "GRR-B (Adequate)";
+      else if (score >= 11) grr = "GRR-C (Vulnerable)";
+      else grr = "GRR-D (Deficient)";
 
-<div class="score" id="score">15</div>
+      document.getElementById("grr").textContent = grr;
 
-<div class="badge" id="grr">GRR-B (Adequate)</div>
-<div class="badge" id="trm">TRM: Moderate</div>
+      const trm = dep >= 4 ? "High" : dep >= 3 ? "Moderate" : "Low";
+      document.getElementById("trm").textContent = "TRM: " + trm;
 
-<div class="result" id="text">
-Governance remains functional but shows pressure under stress.
-</div>
+      let text = "";
+      if (score >= 21) {
+        text = "Governance is strong and resilient under stress.";
+      } else if (score >= 16) {
+        text = "Governance remains functional but shows pressure under stress.";
+      } else if (score >= 11) {
+        text = "Governance is vulnerable and may fail under stress conditions.";
+      } else {
+        text = "Governance is structurally deficient.";
+      }
 
-</div>
+      document.getElementById("text").textContent = text;
+    }
 
-</div>
+    document.querySelectorAll('input[type="range"]').forEach((el) => {
+      el.addEventListener("input", calc);
+    });
 
-</div>
-
-<script>
-
-function calc() {
-  let esc = +document.getElementById("esc").value;
-  let cap = +document.getElementById("cap").value;
-  let dep = +document.getElementById("dep").value;
-  let prod = +document.getElementById("prod").value;
-  let dec = +document.getElementById("dec").value;
-
-  let score = esc + cap + dep + prod + dec;
-
-  document.getElementById("score").innerText = score;
-
-  let grr = "";
-  if(score >= 21) grr = "GRR-A (Strong)";
-  else if(score >=16) grr = "GRR-B (Adequate)";
-  else if(score >=11) grr = "GRR-C (Vulnerable)";
-  else grr = "GRR-D (Deficient)";
-
-  document.getElementById("grr").innerText = grr;
-
-  let trm = dep >=4 ? "High" : dep >=3 ? "Moderate" : "Low";
-  document.getElementById("trm").innerText = "TRM: " + trm;
-
-  let text = "";
-  if(score >=21) text = "Governance is strong and resilient under stress.";
-  else if(score >=16) text = "Governance remains functional but shows pressure under stress.";
-  else if(score >=11) text = "Governance is vulnerable and may fail under stress conditions.";
-  else text = "Governance is structurally deficient.";
-
-  document.getElementById("text").innerText = text;
-}
-
-document.querySelectorAll("input").forEach(el => {
-  el.addEventListener("input", calc);
-});
-
-</script>
-
+    calc();
+  </script>
 </body>
-</html
+</html>
