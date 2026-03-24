@@ -2,20 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GSAT™ Governance Stress Test</title>
-  <meta name="description" content="HSCS Governance Stress Assessment & Transmission — measure governance performance under stress across five domains." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HSCS GSAT</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="mobile-score">
+    <div>GSAT <span id="mobileScore">17</span>/25</div>
+    <div id="mobileGRR">B</div>
+  </div>
+
   <div class="app-shell">
+    <nav class="top-nav">
+      <div class="container nav-inner">
+        <div class="nav-brand">HSCS <span>GSAT™</span></div>
+        <div class="nav-links">
+          <a href="#simulation-title">Simulation</a>
+          <a href="#report-preview">Report</a>
+          <a href="#monitoring-preview">Monitoring</a>
+          <a href="#methodology-preview">Methodology</a>
+        </div>
+      </div>
+    </nav>
+
     <header class="site-header">
-      <div class="container">
-        <div class="hero-note">Proactive Governance Testing</div>
-        <h1>GSAT™ Governance Stress Test</h1>
-        <p class="sub">
-          Governance Stress Assessment &amp; Transmission — measure governance performance under stress across five domains, with quantitative analysis, resilience classification, and transmission risk assessment.
-        </p>
+      <div class="container hero-split">
+        <div>
+          <div class="hero-note">Proactive Governance Testing</div>
+          <h1>GSAT™ Governance Stress Test</h1>
+          <p class="sub">
+            Governance Stress Assessment &amp; Transmission — measure governance performance under stress across five domains, with quantitative analysis, resilience classification, and transmission risk assessment.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-title">Illustrative supervisory output</div>
+          <div class="score"><span id="heroScore">17</span><span class="score-denom">/25</span></div>
+          <div class="badge badge-orange" id="heroGRR">GRR-B · Adequate</div>
+          <div class="badge badge-red" id="heroTRM">TRM · High</div>
+
+          <div class="hero-kpis">
+            <div class="hero-kpi">
+              <div class="hero-kpi-label">Escalation latency</div>
+              <div class="hero-kpi-value" id="heroLatency">3.5h</div>
+            </div>
+            <div class="hero-kpi">
+              <div class="hero-kpi-label">Exposure visibility</div>
+              <div class="hero-kpi-value" id="heroVisibility">74%</div>
+            </div>
+            <div class="hero-kpi">
+              <div class="hero-kpi-label">Dependency concentration</div>
+              <div class="hero-kpi-value" id="heroDependency">68%</div>
+            </div>
+            <div class="hero-kpi">
+              <div class="hero-kpi-label">Primary finding</div>
+              <div class="hero-kpi-value">Transition fracture risk</div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -249,14 +293,266 @@
             </div>
           </div>
 
+          <div class="cta-card">
+            <div class="cta-title">Run Full Governance Stress Assessment</div>
+            <div class="cta-copy">
+              This simulation illustrates GSAT™ outputs. Full assessments include supervisory calibration, evidence validation, and governance realignment.
+            </div>
+            <div class="cta-actions">
+              <a href="#" onclick="openModal(); return false;" class="btn btn-primary">Request Assessment</a>
+              <a href="report.html" class="btn btn-secondary">View Sample Report</a>
+              <a href="#" onclick="downloadReport(); return false;" class="btn btn-secondary">Download Report</a>
+            </div>
+          </div>
+
           <div class="method-link">
-            <a href="#">View Methodology →</a>
+            <a href="#methodology-preview">View Methodology →</a>
           </div>
         </section>
       </div>
+
+      <section class="container section-pad" id="report-preview">
+        <div class="section-title">Illustrative Supervisory Report</div>
+
+        <div class="soft-block">
+          <div class="report-heading">Governance Stress Test Report — Transition Scenario</div>
+
+          <p class="mt-12">
+            A multi-entity transition environment introduced governance stress across escalation pathways, capital visibility, and counterparty dependencies under simulated stress conditions.
+          </p>
+
+          <p class="mt-10">
+            Governance was realigned through escalation redesign, exposure integration, and dependency concentration reduction across entities and infrastructure layers.
+          </p>
+
+          <div class="report-highlight">
+            GRR: B → A · Governance resilience improved following structural realignment
+          </div>
+
+          <div class="report-visual">
+            <div class="report-visual-sheet">
+              <div class="report-line light report-w-36"></div>
+              <div class="report-line report-w-24"></div>
+
+              <div class="report-kpis">
+                <div class="report-kpi">
+                  <div class="report-kpi-title">GSAT</div>
+                  <div class="report-kpi-value">17/25</div>
+                </div>
+                <div class="report-kpi">
+                  <div class="report-kpi-title">GRR</div>
+                  <div class="report-kpi-value">Vulnerable</div>
+                </div>
+                <div class="report-kpi">
+                  <div class="report-kpi-title">TRM</div>
+                  <div class="report-kpi-value">High</div>
+                </div>
+              </div>
+
+              <div class="report-line light mt-16 report-w-22"></div>
+              <div class="report-line report-w-88"></div>
+              <div class="report-line report-w-80"></div>
+              <div class="report-line report-w-62"></div>
+
+              <div class="report-line light mt-12 report-w-18"></div>
+              <div class="report-line report-w-90"></div>
+              <div class="report-line report-w-84"></div>
+              <div class="report-line report-w-58"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section-pad" id="monitoring-preview">
+        <div class="section-title">Continuous Governance Monitoring</div>
+
+        <div class="kpi-grid-3">
+          <div class="panel kpi-panel">
+            <div class="subhead">Escalation Stability</div>
+            <div class="kpi-value">Stable</div>
+            <div class="kpi-desc">Escalation pathways remain functional under current stress levels.</div>
+          </div>
+
+          <div class="panel kpi-panel">
+            <div class="subhead">Dependency Risk</div>
+            <div class="kpi-value">Elevated</div>
+            <div class="kpi-desc">Concentration across key counterparties remains a structural exposure.</div>
+          </div>
+
+          <div class="panel kpi-panel">
+            <div class="subhead">Governance Drift</div>
+            <div class="kpi-value">Moderate</div>
+            <div class="kpi-desc">Governance effectiveness shows degradation under repeated stress cycles.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Scenario History</div>
+        <div id="historyList" class="kpi-grid-3"></div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Governance Trend</div>
+        <div class="soft-block">
+          <canvas id="trendChart" height="120"></canvas>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Scenario Comparison</div>
+
+        <div class="compare-grid">
+          <div class="panel">
+            <div class="subhead">Scenario A</div>
+            <select id="compareA"></select>
+            <div class="kpi-value" id="compareAScore">–</div>
+            <div class="kpi-desc" id="compareADetails"></div>
+          </div>
+
+          <div class="panel">
+            <div class="subhead">Scenario B</div>
+            <select id="compareB"></select>
+            <div class="kpi-value" id="compareBScore">–</div>
+            <div class="kpi-desc" id="compareBDetails"></div>
+          </div>
+        </div>
+
+        <div class="soft-block mt-16">
+          <div class="compare-title">Delta Analysis</div>
+          <div id="compareDeltaText" class="compare-text"></div>
+          <div class="delta-track-wrap">
+            <div class="delta-track">
+              <div id="deltaBar" class="delta-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="soft-block mt-16">
+          <div class="compare-title">Domain-Level Comparison</div>
+          <div id="domainComparison" class="domain-comparison"></div>
+        </div>
+      </section>
+
+      <section class="container section-pad" id="methodology-preview">
+        <div class="section-title">GSAT™ Methodology</div>
+
+        <div class="soft-block">
+          <p>
+            GSAT™ (Governance Stress Assessment &amp; Transmission) evaluates governance performance under forward-looking stress conditions across five domains: escalation, capital integration, dependency exposure, product governance, and decision authority.
+          </p>
+
+          <p class="mt-12">
+            Governance performance is translated into structured outputs including GSAT score, Governance Resilience Rating (GRR), and Transmission Risk Modifier (TRM), enabling supervisory-grade assessment of governance stability under stress.
+          </p>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Governance Stress Testing as a System</div>
+        <div class="soft-block">
+          HSCS applies GSAT™ to measure governance performance under stress—translating complex structures into supervisory-grade outputs, actionable findings, and continuous monitoring.
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="product-grid">
+          <div class="panel">
+            <div class="section-title small">GSAT™ Simulation</div>
+            <div class="kpi-desc">
+              An interactive simulation of governance performance under stress conditions. Users adjust structural inputs to generate GSAT scores, Governance Resilience Ratings (GRR), and Transmission Risk Modifiers (TRM).
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="section-title small">Governance Stress Test</div>
+            <div class="kpi-desc">
+              A structured evaluation of governance performance under forward-looking stress conditions across five GSAT domains, delivered as a formal governance stress test report.
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="section-title small">Continuous Governance Monitoring</div>
+            <div class="kpi-desc">
+              A recurring application of GSAT™ to monitor governance resilience over time, detect structural drift, and reassess performance under evolving conditions.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">When to Use Governance Stress Testing</div>
+        <div class="kpi-grid-3">
+          <div class="panel kpi-panel">
+            <div class="kpi-value">Platform Transition</div>
+            <div class="kpi-desc">Assess governance resilience during system migrations, clearing changes, and infrastructure transformation.</div>
+          </div>
+          <div class="panel kpi-panel">
+            <div class="kpi-value">Structural Change</div>
+            <div class="kpi-desc">Evaluate governance across entities, jurisdictions, and operating model redesign.</div>
+          </div>
+          <div class="panel kpi-panel">
+            <div class="kpi-value">Board Oversight</div>
+            <div class="kpi-desc">Establish governance as a measurable discipline through recurring stress testing and monitoring.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Engagement Model</div>
+        <div class="soft-block">
+          <p>
+            HSCS delivers governance stress testing through a structured assessment process aligned with supervisory expectations.
+          </p>
+          <p class="mt-12">
+            Engagements typically include data collection, governance diagnostic, stress simulation, and delivery of a formal Governance Stress Test Report with GSAT score, GRR classification, and targeted realignment actions.
+          </p>
+          <p class="mt-12">
+            Continuous monitoring can be established through periodic reassessment and scenario-based governance testing.
+          </p>
+        </div>
+      </section>
+
+      <section class="container section-pad">
+        <div class="section-title">Assessment Scope</div>
+        <div class="soft-block">
+          <p>
+            Assessment scope is determined based on institutional complexity, number of entities, asset structure, and transition conditions.
+          </p>
+          <p class="mt-12">
+            Engagements are tailored to reflect governance architecture, regulatory environment, and operational dependencies.
+          </p>
+          <p class="mt-12">
+            To discuss scope and timing, request a governance stress assessment.
+          </p>
+        </div>
+      </section>
     </main>
   </div>
 
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <form id="contactForm">
+        <div class="modal-title">Request Governance Stress Assessment</div>
+        <div class="modal-sub">
+          Submit your details to initiate a GSAT™ governance assessment.
+        </div>
+
+        <input name="name" placeholder="Name" required />
+        <input name="institution" placeholder="Institution" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="context" placeholder="Context (optional)"></textarea>
+
+        <input type="hidden" name="gsat_score" id="formScore" />
+        <input type="hidden" name="grr" id="formGRR" />
+        <input type="hidden" name="trm" id="formTRM" />
+
+        <button class="modal-btn" type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
