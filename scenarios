@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSCS GSAT™ — Scenarios</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">HSCS <span>GSAT™</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Core Test</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="index.html#monitoring">Monitoring</a>
+      <a href="index.html#method">Method</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn primary" href="index.html#simulator">Run Core Test</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Scenario library</div>
+    <h1>Run governance stress tests by market participant.</h1>
+    <p class="lead">Each scenario applies the same GSAT™ engine through a different supervisory lens, tailored to the structural breakpoints of specific market participants.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap cards-4">
+    <a class="panel info-card" href="scenario-investors.html" style="text-decoration:none;color:inherit"><h3>Institutional Investors</h3><p>Delegated oversight, custody visibility, administrator dependence, and external control gaps.</p></a>
+    <a class="panel info-card" href="scenario-asset-managers.html" style="text-decoration:none;color:inherit"><h3>Asset &amp; Wealth</h3><p>Mandate fragmentation, reporting coherence, product complexity, and outsourced operating risk.</p></a>
+    <a class="panel info-card" href="scenario-intermediaries.html" style="text-decoration:none;color:inherit"><h3>Intermediaries</h3><p>Clearing dependency, capital visibility, execution governance, and escalation under stress.</p></a>
+    <a class="panel info-card" href="scenario-infrastructure.html" style="text-decoration:none;color:inherit"><h3>Infrastructure &amp; Platforms</h3><p>Platform concentration, third-party dependencies, operational resilience, and service continuity.</p></a>
+  </div>
+</section>
+</main>
+</body>
+</html>
