@@ -188,38 +188,3 @@ footer{padding:42px 0 70px;color:var(--muted)}
 .js-ready [data-output] {
   contain: layout style;
 }
-
-
-/* === Client Release Fixes === */
-
-/* Prevent white flash */
-html { background: #08111f; }
-
-/* Prevent iOS bounce issues */
-html, body {
-  overscroll-behavior: none;
-}
-
-body {
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow-x: hidden;
-}
-
-/* Fade-in load */
-body {
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-body.loaded {
-  opacity: 1;
-}
-
-/* Mobile KPI fix */
-@media (max-width: 640px) {
-  .kpi-row, .score-cards {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px;
-  }
-}
