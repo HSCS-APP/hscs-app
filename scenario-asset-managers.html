@@ -1,239 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HSCS GSAT™ — Asset & Wealth Managers</title>
-  <link rel="stylesheet" href="styles.css" />
+<style>html { background:#08111f; }</style>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>HSCS GSAT — Asset & Wealth Managers</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body data-scenario="assetmanagers">
-<header>
-  <div class="wrap nav">
-    <div class="brand">HSCS <span>GSAT™</span></div>
-    <nav class="nav-links">
-      <a href="index.html">Core Test</a>
-      <a href="scenarios.html">Scenarios</a>
-      <a href="index.html#monitoring">Monitoring</a>
-      <a href="index.html#method">Method</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn secondary" href="scenarios.html">Explore Scenarios</a>
-      <a class="btn primary" href="#simulator">Run Simulation</a>
-    </div>
-  </div>
-</header>
+<body>
+<header><div class='wrap nav'><div class='brand'>HSCS <span>GSAT</span></div><nav class='nav-links'><a href='index.html'>Core Test</a><a href='scenarios.html'>Scenarios</a><a href='#monitoring'>Monitoring</a><a href='#method'>Method</a></nav><div class='nav-actions'><a class='btn secondary' href='scenarios.html'>Explore Scenarios</a><a class='btn primary' href='#simulator'>Run Simulation</a></div></div></header>
 <main>
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Scenario — Asset & Wealth Management</div>
-      <h1>Test governance across multi-product and client-driven structures.</h1>
-      <p class="lead">Asset and wealth managers operate across mandates, products, and client segments. This scenario tests governance fragmentation, reporting consistency, and escalation across investment, operations, and distribution.</p>
-      <div class="cta">
-        <a class="btn primary" href="#simulator">Run simulation</a>
-        <a class="btn secondary" href="scenarios.html">Explore scenarios</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><div class="num">5</div><div class="lab">GSAT domains</div></div>
-        <div class="stat"><div class="num">25</div><div class="lab">Point scale</div></div>
-        <div class="stat"><div class="num">Δ</div><div class="lab">Stress deterioration</div></div>
-      </div>
-    </div>
+<section class='hero'><div class='wrap hero-grid'><div><div class='eyebrow'>Scenario — Asset & Wealth Management</div><h1>Test governance across multi-product and client-driven structures.</h1><p class='lead'>Asset and wealth managers operate across mandates, products, and client segments. This scenario tests governance fragmentation, reporting consistency, and escalation across investment, operations, and distribution.</p><div class='cta'><a class='btn primary' href='#simulator'>Run simulation</a><a class='btn secondary' href='scenarios.html'>Explore scenarios</a></div><div class='stats'><div class='stat'><div class='num'>5</div><div class='lab'>GSAT domains</div></div><div class='stat'><div class='num'>25</div><div class='lab'>point resilience scale</div></div><div class='stat'><div class='num'>3</div><div class='lab'>score · GRR · TRM</div></div></div></div>
+<div class='hero-card panel'><div class='card-title'>Illustrative supervisory output</div><div class='score-big'><div class='n' id='heroScore'>17</div><div class='d'>/25</div></div><div style='display:flex;gap:10px;flex-wrap:wrap'><span class='pill orange' id='heroGRR'>GRR-B · Adequate</span><span class='pill red' id='heroTRM'>TRM · High</span></div><div class='mini-grid'><div class='mini'><div class='k'>Escalation latency</div><div class='v' id='heroLatency'>3.5h</div></div><div class='mini'><div class='k'>Exposure visibility</div><div class='v' id='heroVisibility'>74%</div></div><div class='mini'><div class='k'>Dependency concentration</div><div class='v' id='heroDependency'>68%</div></div><div class='mini'><div class='k'>Primary finding</div><div class='v' style='font-size:16px'>Transition fracture risk</div></div></div></div></div></section>
 
-    <div class="hero-card panel">
-      <div class="card-title">Illustrative supervisory output</div>
-      <div class="score-big"><div class="n" id="heroScore">17</div><div class="d">/25</div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span class="pill orange" id="heroGRR">GRR-B · Adequate</span>
-        <span class="pill red" id="heroTRM">TRM · High</span>
-      </div>
-      <div class="mini-grid">
-        <div class="mini"><div class="k">Escalation latency</div><div class="v" id="heroLatency">3.5h</div></div>
-        <div class="mini"><div class="k">Exposure visibility</div><div class="v" id="heroVisibility">74%</div></div>
-        <div class="mini"><div class="k">Dependency concentration</div><div class="v" id="heroDependency">68%</div></div>
-        <div class="mini"><div class="k">Primary breakpoint</div><div class="v breakpoint" id="heroBreakpoint">Governance fracture emerges across visibility, escalation, and dependency layers.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id='simulator'><div class='wrap'><div class='section-head'><div><div class='eyebrow'>Interactive assessment</div><h2>Asset & Wealth Governance Simulation</h2></div><p>Assess governance performance across multi-product portfolios, mandates, and operational structures under stress.</p></div>
+<div class='sim-grid'><div class='panel'>
+<div class='subhead'>Core GSAT domains</div>
+<div class='field'><div class='field-top'><label for='esc'>Escalation effectiveness</label><output id='escVal'>3</output></div><div class='desc'>Ability to escalate issues to the correct decision body under time pressure.</div><input id='esc' type='range' min='1' max='5' step='1' value='3'><div class='range-scale'><span>Critical</span><span>Strong</span></div></div>
+<div class='field'><div class='field-top'><label for='cap'>Capital & clearing integration</label><output id='capVal'>3</output></div><div class='desc'>Alignment between capital, margin, clearing, and governance visibility.</div><input id='cap' type='range' min='1' max='5' step='1' value='3'><div class='range-scale'><span>Misaligned</span><span>Integrated</span></div></div>
+<div class='field'><div class='field-top'><label for='dep'>Dependency exposure</label><output id='depVal'>2</output></div><div class='desc'>Concentration across brokers, custodians, CCPs, and infrastructure providers.</div><input id='dep' type='range' min='1' max='5' step='1' value='2'><div class='range-scale'><span>Critical</span><span>Diversified</span></div></div>
+<div class='field'><div class='field-top'><label for='prd'>Product & structural governance</label><output id='prdVal'>4</output></div><div class='desc'>Ability to govern mixed instruments, complex products, and transfer constraints.</div><input id='prd' type='range' min='1' max='5' step='1' value='4'><div class='range-scale'><span>Opaque</span><span>Controlled</span></div></div>
+<div class='field'><div class='field-top'><label for='dec'>Accountability & decision authority</label><output id='decVal'>3</output></div><div class='desc'>Clarity of ownership and who may act across entities and functions.</div><input id='dec' type='range' min='1' max='5' step='1' value='3'><div class='range-scale'><span>Fragmented</span><span>Clear</span></div></div>
 
-<section id="simulator">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">Interactive assessment</div><h2>Asset & Wealth Governance Simulation</h2></div>
-      <p>Assess governance performance across multi-product portfolios, mandates, and operational structures under stress.</p>
-    </div>
-    <div class="sim-grid">
-      
-      <div class="panel">
-        <div class="subhead">Core GSAT domains</div>
+<div class='subhead' style='margin-top:20px'>Advanced transition modifiers</div>
+<div class='row-2'>
+<div class='field' style='padding-top:0;border-top:none'><div class='field-top'><label for='assetComplexity'>Asset complexity</label></div><div class='desc'>Complexity created by OTC, proprietary, structured, and cross-venue instruments.</div><select id='assetComplexity'><option value='0'>Low — listed / standardized</option><option value='-1'>Moderate — mixed asset set</option><option value='-2' selected>High — OTC + structured</option><option value='-3'>Critical — proprietary-heavy</option></select></div>
+<div class='field' style='padding-top:0;border-top:none'><div class='field-top'><label for='fragmentation'>Cross-entity fragmentation</label></div><div class='desc'>Entity spread, jurisdiction overlap, and governance aggregation difficulty.</div><select id='fragmentation'><option value='0'>Single entity</option><option value='-1'>Multi-entity</option><option value='-2'>Cross-jurisdiction</option><option value='-3' selected>Global fragmented</option></select></div>
+</div>
+<div class='row-2'>
+<div class='field' style='padding-top:0'><div class='field-top'><label for='transitionType'>Transition type</label></div><div class='desc'>Illustrative stress amplifier tied to the change event itself.</div><select id='transitionType'><option value='0'>Steady-state monitoring</option><option value='-1'>Platform migration</option><option value='-1'>Clearing change</option><option value='-2'>Portfolio transition</option><option value='-3' selected>Multi-layer transformation</option></select></div>
+<div class='field' style='padding-top:0'><div class='field-top'><label for='visibility'>Exposure visibility (%)</label></div><div class='desc'>Approximate portion of exposure visible across entities in near real time.</div><input id='visibility' type='number' min='0' max='100' step='1' value='74'></div>
+</div>
+<div class='row-2'>
+<div class='field' style='padding-top:0'><div class='field-top'><label for='latency'>Escalation latency (hours)</label></div><div class='desc'>Time from detection to senior decision point during stress.</div><input id='latency' type='number' min='0' max='72' step='0.5' value='3.5'></div>
+<div class='field' style='padding-top:0'><div class='field-top'><label for='dependencyPct'>Dependency concentration (%)</label></div><div class='desc'>Reliance on top counterparties / providers.</div><input id='dependencyPct' type='number' min='0' max='100' step='1' value='68'></div>
+</div>
+</div>
 
-        <div class="field"><div class="field-top"><label for="esc">Escalation effectiveness</label><output id="escVal">3</output></div><div class="desc">Ability to escalate issues to the correct decision authority under time pressure.</div><input id="esc" type="range" min="1" max="5" step="1" value="3" /><div class="range-scale"><span>Critical</span><span>Strong</span></div></div>
-        <div class="field"><div class="field-top"><label for="cap">Capital &amp; clearing integration</label><output id="capVal">3</output></div><div class="desc">Alignment between capital, margin, clearing, and governance visibility.</div><input id="cap" type="range" min="1" max="5" step="1" value="3" /><div class="range-scale"><span>Misaligned</span><span>Integrated</span></div></div>
-        <div class="field"><div class="field-top"><label for="dep">Dependency exposure</label><output id="depVal">2</output></div><div class="desc">Concentration across brokers, custodians, CCPs, and infrastructure providers.</div><input id="dep" type="range" min="1" max="5" step="1" value="2" /><div class="range-scale"><span>Critical</span><span>Diversified</span></div></div>
-        <div class="field"><div class="field-top"><label for="prd">Product &amp; structural governance</label><output id="prdVal">4</output></div><div class="desc">Ability to govern complex instruments, portfolios, and transfer constraints.</div><input id="prd" type="range" min="1" max="5" step="1" value="4" /><div class="range-scale"><span>Opaque</span><span>Controlled</span></div></div>
-        <div class="field"><div class="field-top"><label for="dec">Accountability &amp; decision authority</label><output id="decVal">3</output></div><div class="desc">Clarity of ownership across functions, entities, and jurisdictions.</div><input id="dec" type="range" min="1" max="5" step="1" value="3" /><div class="range-scale"><span>Fragmented</span><span>Clear</span></div></div>
+<div class='panel'><div class='score-top'><div class='score-box'><div class='label'>GSAT score</div><div class='big'><span id='scoreOut'>17</span><span style='font-size:22px;color:var(--muted)'>/25</span></div><div id='grrPill' class='pill orange'>GRR-B · Adequate</div></div>
+<div class='score-box'><div class='label'>Transmission risk modifier</div><div class='big' style='font-size:34px' id='trmOut'>High</div><div id='trmPill' class='pill red'>Cross-system propagation</div></div></div>
+<div class='subhead'>Governance resilience rating</div>
+<div class='band' id='bandA'><div>GRR-A Strong</div><div class='track'><span class='green-fill'></span></div><div>21–25</div></div>
+<div class='band' id='bandB'><div>GRR-B Adequate</div><div class='track'><span class='amber-fill'></span></div><div>16–20</div></div>
+<div class='band' id='bandC'><div>GRR-C Vulnerable</div><div class='track'><span class='orange-fill'></span></div><div>11–15</div></div>
+<div class='band' id='bandD'><div>GRR-D Deficient</div><div class='track'><span class='red-fill'></span></div><div>5–10</div></div>
 
-        <div class="subhead" style="margin-top:20px">Stress modifiers</div>
+<div class='subhead' style='margin-top:18px'>Domain score decomposition</div>
+<div class='domain'><div class='domain-top'><div class='name'>Escalation effectiveness</div><div class='small-track'><span id='barEsc'></span></div><div id='barEscT'>3</div></div></div>
+<div class='domain'><div class='domain-top'><div class='name'>Capital & clearing</div><div class='small-track'><span id='barCap'></span></div><div id='barCapT'>3</div></div></div>
+<div class='domain'><div class='domain-top'><div class='name'>Dependency exposure</div><div class='small-track'><span id='barDep'></span></div><div id='barDepT'>2</div></div></div>
+<div class='domain'><div class='domain-top'><div class='name'>Product governance</div><div class='small-track'><span id='barPrd'></span></div><div id='barPrdT'>4</div></div></div>
+<div class='domain'><div class='domain-top'><div class='name'>Decision authority</div><div class='small-track'><span id='barDec'></span></div><div id='barDecT'>3</div></div></div>
+<div class='subhead' style='margin-top:18px'>Interpretation</div><div class='callout' id='interpretation'></div></div></div></div></section>
 
-        <div class="row-2">
-          <div class="field" style="padding-top:0;border-top:none"><div class="field-top"><label for="assetComplexity">Asset complexity</label></div><div class="desc">Impact of OTC, structured, and proprietary instruments.</div><select id="assetComplexity"><option value="0">Low — listed / standardized</option><option value="-1">Moderate — mixed asset set</option><option value="-2" selected>High — OTC + structured</option><option value="-3">Critical — proprietary-heavy</option></select></div>
-          <div class="field" style="padding-top:0;border-top:none"><div class="field-top"><label for="fragmentation">Cross-entity fragmentation</label></div><div class="desc">Governance complexity across entities and jurisdictions.</div><select id="fragmentation"><option value="0">Single entity</option><option value="-1">Multi-entity</option><option value="-2">Cross-jurisdiction</option><option value="-3" selected>Global fragmented</option></select></div>
-        </div>
-        <div class="row-2">
-          <div class="field" style="padding-top:0"><div class="field-top"><label for="transitionType">Stress type</label></div><div class="desc">Illustrative stress amplifier applied to the governance structure.</div><select id="transitionType"><option value="0">Steady-state monitoring</option><option value="-1">Operational pressure</option><option value="-1">Coordination stress</option><option value="-2">Structural event</option><option value="-3" selected>Multi-layer stress</option></select></div>
-          <div class="field" style="padding-top:0"><div class="field-top"><label for="visibility">Exposure visibility (%)</label></div><div class="desc">Approximate portion of exposure visible across entities in near real time.</div><input id="visibility" type="number" min="0" max="100" step="1" value="74" /></div>
-        </div>
-        <div class="row-2">
-          <div class="field" style="padding-top:0"><div class="field-top"><label for="latency">Escalation latency (hours)</label></div><div class="desc">Time from issue detection to senior decision point during stress.</div><input id="latency" type="number" min="0" max="72" step="0.5" value="3.5" /></div>
-          <div class="field" style="padding-top:0"><div class="field-top"><label for="dependencyPct">Dependency concentration (%)</label></div><div class="desc">Reliance on key counterparties or providers.</div><input id="dependencyPct" type="number" min="0" max="100" step="1" value="68" /></div>
-        </div>
-      </div>
+<section id='report'><div class='wrap'><div class='section-head'><div><div class='eyebrow'>Simulated output</div><h2>Your Governance Stress Test Report</h2></div><p>The simulator translates your inputs into a supervisory-style scorecard, resilience classification, and breakpoint analysis.</p></div>
+<div class='report-preview'><div class='panel'><div class='subhead'>Report overview</div><div class='cards-3'><div class='info-card stat'><div class='num' style='font-size:22px'>Executive summary</div><div class='lab'>Score, rating, and supervisory conclusion</div></div><div class='info-card stat'><div class='num' style='font-size:22px'>Scorecard</div><div class='lab'>Five-domain governance breakdown</div></div><div class='info-card stat'><div class='num' style='font-size:22px'>Breakpoints</div><div class='lab'>Primary stress points under current conditions</div></div></div>
+<div class='comparison'><div class='compare-card'><h4>Current simulated state</h4><div class='big'>17</div><div style='margin:8px 0 6px'><span class='pill orange'>GRR-B</span> <span class='pill red'>TRM High</span></div><div style='color:var(--muted);line-height:1.5'>Governance shows vulnerability under current stress conditions due to delayed escalation and dependency concentration.</div></div>
+<div class='compare-card'><h4>Illustrative strengthened state</h4><div class='big'>22</div><div style='margin:8px 0 6px'><span class='pill green'>GRR-A</span> <span class='pill amber'>TRM Moderate</span></div><div style='color:var(--muted);line-height:1.5'>Governance resilience improves when escalation discipline, visibility, and dependency controls are strengthened.</div></div></div></div>
+<div class='preview-pane'><div class='report-sheet'><div class='report-line light' style='width:46%'></div><div class='report-line' style='width:34%'></div>
+<div class='report-block'><div class='report-line light' style='width:24%'></div><div class='report-kpis'><div class='kpi'><div class='t'>GSAT score</div><div class='n'>17/25</div></div><div class='kpi'><div class='t'>GRR</div><div class='n'>Vulnerable</div></div><div class='kpi'><div class='t'>TRM</div><div class='n'>High</div></div></div></div>
+<div class='report-block'><div class='report-line light' style='width:28%'></div><div class='report-line' style='width:92%'></div><div class='report-line' style='width:87%'></div><div class='report-line' style='width:66%'></div></div>
+<div class='report-block'><div class='report-line light' style='width:18%'></div><div class='report-line' style='width:78%'></div><div class='report-line' style='width:74%'></div><div class='report-line' style='width:82%'></div><div class='report-line' style='width:51%'></div></div>
+<div class='report-block'><div class='report-line light' style='width:22%'></div><div class='report-line' style='width:95%'></div><div class='report-line' style='width:90%'></div><div class='report-line' style='width:56%'></div></div>
+<div class='report-block' style='opacity:.45'><div class='report-line light' style='width:30%'></div><div class='report-line' style='width:88%'></div><div class='report-line' style='width:82%'></div><div class='report-line' style='width:79%'></div></div>
+</div></div></div></div></section>
 
-      <div class="panel">
-        <div class="score-top">
-          <div class="score-box"><div class="label">GSAT score</div><div class="big"><span id="scoreOut">17</span><span class="score-denom">/25</span></div><div id="grrPill" class="pill orange">GRR-B · Adequate</div></div>
-          <div class="score-box"><div class="label">Transmission risk modifier</div><div class="big small" id="trmOut">High</div><div id="trmPill" class="pill red">Cross-system propagation</div></div>
-        </div>
+<section id='monitoring'><div class='wrap'><div class='section-head'><div><div class='eyebrow'>Continuous monitoring</div><h2>Governance Monitoring Dashboard</h2></div><p>The same GSAT structure can be applied on a recurring basis to monitor governance drift, compare stress conditions over time, and support board-level review.</p></div>
+<div class='monitor-grid'><div class='panel trend-card'><div class='subhead'>Quarterly governance trend</div><div class='spark'><svg viewBox='0 0 600 220' preserveAspectRatio='none'><path d='M0 175 L600 175' stroke='rgba(255,255,255,.07)' stroke-width='1'/><path d='M0 135 L600 135' stroke='rgba(255,255,255,.07)' stroke-width='1'/><path d='M0 95 L600 95' stroke='rgba(255,255,255,.07)' stroke-width='1'/><path d='M0 55 L600 55' stroke='rgba(255,255,255,.07)' stroke-width='1'/><polyline fill='none' stroke='#7ea2ff' stroke-width='4' points='30,150 130,145 230,138 330,116 430,109 530,92'/><polyline fill='none' stroke='#d4b067' stroke-width='3' points='30,90 130,92 230,98 330,112 430,118 530,132'/><polyline fill='none' stroke='#d75555' stroke-width='3' points='30,58 130,60 230,65 330,82 430,92 530,108'/><circle cx='530' cy='92' r='6' fill='#7ea2ff'/></svg></div><div class='legend'><span class='l1'>GSAT score</span><span class='l2'>Transition pressure</span><span class='l3'>Dependency risk</span></div></div>
+<div class='panel'><div class='subhead'>Dashboard outputs</div><div class='metric-list'><div class='metric-item'><div class='t'>Current governance resilience</div><div class='v'>22 / 25 · GRR-A</div></div><div class='metric-item'><div class='t'>Most improved domain</div><div class='v'>Escalation effectiveness</div></div><div class='metric-item'><div class='t'>Remaining watch item</div><div class='v'>Dependency concentration</div></div><div class='metric-item'><div class='t'>Next review trigger</div><div class='v'>Clearing structure change</div></div></div></div></div></div></section>
 
-        <div class="subhead">Governance resilience rating</div>
-        <div class="band" id="bandA"><div>GRR-A Strong</div><div class="track"><span class="green-fill"></span></div><div>21–25</div></div>
-        <div class="band" id="bandB"><div>GRR-B Adequate</div><div class="track"><span class="amber-fill"></span></div><div>16–20</div></div>
-        <div class="band" id="bandC"><div>GRR-C Vulnerable</div><div class="track"><span class="orange-fill"></span></div><div>11–15</div></div>
-        <div class="band" id="bandD"><div>GRR-D Deficient</div><div class="track"><span class="red-fill"></span></div><div>5–10</div></div>
+<section id='method'><div class='wrap'><div class='section-head'><div><div class='eyebrow'>Why this matters</div><h2>From one-off assessment to governance benchmark</h2></div><p>The same five-domain GSAT structure supports transaction stress testing, recurring governance review, and benchmark-style monitoring without positioning HSCS as a compliance vendor.</p></div>
+<div class='cards-4'><div class='panel info-card'><h3>Independent benchmark</h3><p>HSCS evaluates governance performance under stress, rather than certifying compliance against a narrow rule set.</p></div><div class='panel info-card'><h3>Transition-led urgency</h3><p>Platform migration, clearing change, and infrastructure transformation remain the strongest commercial triggers.</p></div><div class='panel info-card'><h3>Supervisory-grade output</h3><p>Scorecards, breakpoints, controls, and before/after evidence create board-ready and regulator-comprehensible deliverables.</p></div><div class='panel info-card'><h3>Recurring revenue path</h3><p>Quarterly governance testing and drift monitoring create a productized follow-on service beyond single events.</p></div></div></div></section>
+</main>
+<footer><div class='wrap'>HSCS GSAT — public black-box simulator using the Asset & Wealth supervisory lens.</div></footer>
 
-        <div class="subhead" style="margin-top:18px">Domain score decomposition</div>
-        <div class="domain"><div class="domain-top"><div class="name">Escalation</div><div class="small-track"><span id="barEsc"></span></div><div id="barEscT">3</div></div></div>
-        <div class="domain"><div class="domain-top"><div class="name">Capital &amp; clearing</div><div class="small-track"><span id="barCap"></span></div><div id="barCapT">3</div></div></div>
-        <div class="domain"><div class="domain-top"><div class="name">Dependency exposure</div><div class="small-track"><span id="barDep"></span></div><div id="barDepT">2</div></div></div>
-        <div class="domain"><div class="domain-top"><div class="name">Product governance</div><div class="small-track"><span id="barPrd"></span></div><div id="barPrdT">4</div></div></div>
-        <div class="domain"><div class="domain-top"><div class="name">Decision authority</div><div class="small-track"><span id="barDec"></span></div><div id="barDecT">3</div></div></div>
-
-        <div class="subhead" style="margin-top:18px">Governance stability under stress</div>
-        <div class="comparison">
-          <div class="compare-card"><h4>Baseline condition</h4><div class="big" id="baselineScore">21</div><div style="margin:8px 0 6px"><span class="pill green" id="baselineGRR">GRR-A</span></div><div style="color:var(--muted);line-height:1.5" id="baselineText">Governance remains stable under baseline operating conditions without additional stress amplification.</div></div>
-          <div class="compare-card"><h4>Stress condition</h4><div class="big" id="stressScore">17</div><div style="margin:8px 0 6px"><span class="pill orange" id="stressGRR">GRR-B</span></div><div style="color:var(--muted);line-height:1.5" id="stressText">Governance performance is assessed as vulnerable under the simulated stress conditions, with pressure observed across escalation, visibility, and dependency structures.</div></div>
-        </div>
-
-        <div class="callout delta-material" id="deltaCallout" style="margin-top:14px">↓ Δ -4 · Material deterioration under stress</div>
-        <div class="subhead" style="margin-top:18px">Primary breakpoint</div>
-        <div class="callout" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
-        <div class="subhead" style="margin-top:18px">Interpretation</div>
-        <div class="callout" id="interpretation"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="report">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">Simulated output</div><h2 id="reportTitle">Governance Stress Test Report</h2></div>
-      <p id="reportSubtitle">Supervisory-style output reflecting current governance conditions under simulated stress.</p>
-    </div>
-
-    <div class="report-preview">
-      <div class="panel">
-        <div class="subhead">Report overview</div>
-        <div class="cards-3">
-          <div class="info-card stat"><div class="num small-num">Executive summary</div><div class="lab">Score, rating, and supervisory conclusion</div></div>
-          <div class="info-card stat"><div class="num small-num">Scorecard</div><div class="lab">Five-domain governance breakdown</div></div>
-          <div class="info-card stat"><div class="num small-num">Breakpoints</div><div class="lab">Primary stress points under current conditions</div></div>
-        </div>
-
-        <div class="comparison">
-          <div class="compare-card">
-            <h4>Current simulated state</h4>
-            <div class="big" id="reportCurrentScore">17</div>
-            <div style="margin:8px 0 6px"><span class="pill orange" id="reportCurrentGRR">GRR-B</span> <span class="pill red" id="reportCurrentTRM">TRM High</span></div>
-            <div style="color:var(--muted);line-height:1.5" id="reportCurrentText">Governance performance is assessed as vulnerable under the simulated stress conditions, with pressure observed across escalation, visibility, and dependency structures.</div>
-          </div>
-          <div class="compare-card">
-            <h4>Illustrative strengthened state</h4>
-            <div class="big" id="reportTargetScore">22</div>
-            <div style="margin:8px 0 6px"><span class="pill green" id="reportTargetGRR">GRR-A</span> <span class="pill amber" id="reportTargetTRM">TRM Moderate</span></div>
-            <div style="color:var(--muted);line-height:1.5" id="reportTargetText">Governance resilience improves when escalation discipline, visibility, and dependency controls are strengthened.</div>
-          </div>
-        </div>
-
-        <div class="callout delta-material" id="reportDeltaCallout" style="margin-top:14px">↓ Δ -4 · Material deterioration under stress</div>
-      </div>
-
-      <div class="preview-pane">
-        <div class="report-sheet">
-          <div class="report-line light report-w-36"></div>
-          <div class="report-line report-w-24"></div>
-          <div class="report-block">
-            <div class="report-line light report-w-24"></div>
-            <div class="report-kpis">
-              <div class="kpi"><div class="t">GSAT score</div><div class="n" id="sheetGSAT">17/25</div></div>
-              <div class="kpi"><div class="t">GRR</div><div class="n" id="sheetGRR">Vulnerable</div></div>
-              <div class="kpi"><div class="t">TRM</div><div class="n" id="sheetTRM">High</div></div>
-            </div>
-          </div>
-          <div class="report-block">
-            <div class="report-line light report-w-28"></div>
-            <div style="margin-top:10px;font-weight:700">Primary Breakpoint</div>
-            <div id="reportBreakpoint" style="margin-top:8px;color:var(--muted);line-height:1.5">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
-          </div>
-          <div class="report-block"><div class="report-line light report-w-22"></div><div class="report-line report-w-88"></div><div class="report-line report-w-80"></div><div class="report-line report-w-62"></div></div>
-          <div class="report-block" style="opacity:.55"><div class="report-line light report-w-18"></div><div class="report-line report-w-90"></div><div class="report-line report-w-84"></div><div class="report-line report-w-58"></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="report-note">Full GSAT™ assessments include supervisory calibration, evidence validation, and governance realignment.</div>
-  </div>
-</section>
-
-<section id="monitoring">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">Continuous monitoring</div><h2>Governance Monitoring Dashboard</h2></div>
-      <p>The same GSAT™ structure can be applied on a recurring basis to monitor governance drift, compare stress conditions over time, and support board-level review.</p>
-    </div>
-    <div class="monitor-grid">
-      <div class="panel trend-card">
-        <div class="subhead">Governance trend</div>
-        <div class="spark">
-          <svg viewBox="0 0 600 220" preserveAspectRatio="none">
-            <path d="M0 175 L600 175" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 135 L600 135" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 95 L600 95" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 55 L600 55" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <polyline fill="none" stroke="#7ea2ff" stroke-width="4" points="30,150 130,145 230,138 330,116 430,109 530,92"/>
-            <polyline fill="none" stroke="#d4b067" stroke-width="3" points="30,90 130,92 230,98 330,112 430,118 530,132"/>
-            <polyline fill="none" stroke="#d75555" stroke-width="3" points="30,58 130,60 230,65 330,82 430,92 530,108"/>
-            <circle cx="530" cy="92" r="6" fill="#7ea2ff"/>
-          </svg>
-        </div>
-        <div class="legend"><span class="l1">GSAT score</span><span class="l2">Stress pressure</span><span class="l3">Dependency risk</span></div>
-      </div>
-      <div class="panel">
-        <div class="subhead">Dashboard outputs</div>
-        <div class="metric-list">
-          <div class="metric-item"><div class="t">Current governance resilience</div><div class="v">17 / 25 · GRR-B</div></div>
-          <div class="metric-item"><div class="t">Primary breakpoint</div><div class="v" id="monitorBreakpoint">Escalation & visibility</div></div>
-          <div class="metric-item"><div class="t">Stress deterioration</div><div class="v" id="monitorDelta">Δ -4</div></div>
-          <div class="metric-item"><div class="t">Watch item</div><div class="v">Dependency concentration</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="method">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">Method</div><h2>One engine, multiple governance lenses</h2></div>
-      <p>GSAT™ evaluates governance performance across five domains and translates structural conditions into score, resilience classification, and transmission risk. The simulator demonstrates output behavior while preserving proprietary model calibration.</p>
-    </div>
-    <div class="cards-4">
-      <div class="panel info-card"><h3>Independent benchmark</h3><p>GSAT™ measures governance performance under stress rather than certifying compliance against a narrow rule set.</p></div>
-      <div class="panel info-card"><h3>Stress deterioration view</h3><p>Baseline and stressed conditions are shown together so users can see how governance worsens under pressure.</p></div>
-      <div class="panel info-card"><h3>Scenario overlays</h3><p>The same engine can be applied to different participant contexts without changing the visual product language.</p></div>
-      <div class="panel info-card"><h3>Protected methodology</h3><p>The public simulator is intentionally illustrative. Full supervisory calibration remains inside engagement.</p></div>
-    </div>
-  </div>
-</section>
-
-    </div>
-  </div>
-</section>
-<footer><div class="wrap">HSCS GSAT™ — public black-box simulator using the Asset & Wealth supervisory lens.</div></footer><script src="app.js"></script></body></html>
+<script src="app.js"></script>
+</body></html>
