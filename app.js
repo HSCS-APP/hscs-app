@@ -1,4 +1,3 @@
-window.addEventListener('load',()=>document.body.classList.add('loaded'));
 document.documentElement.classList.add('js-ready');
 /* Extracted from locked prototype baseline */
 
