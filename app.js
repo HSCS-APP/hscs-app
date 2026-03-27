@@ -780,3 +780,19 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     }
   };
 })();
+
+// PASS F1.2 additions
+
+function setTx(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.width = Math.max(8, Math.min(100, value)) + '%';
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  setTx('txEsc', 70);
+  setTx('txVis', 60);
+  setTx('txDep', 80);
+  setTx('txCap', 50);
+  setTx('txDec', 40);
+});
