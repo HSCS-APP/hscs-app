@@ -52,7 +52,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     reportTargetScore:$('reportTargetScore'), reportTargetGRR:$('reportTargetGRR'), reportTargetTRM:$('reportTargetTRM'),
     reportTargetText:$('reportTargetText'), sheetGSAT:$('sheetGSAT'), sheetGRR:$('sheetGRR'), sheetTRM:$('sheetTRM'),
     reportBreakpoint:$('reportBreakpoint'), reportDeltaCallout:$('reportDeltaCallout'),
-    monitorBreakpoint:$('monitorBreakpoint'), monitorDelta:$('monitorDelta'), reportNarrativeMount:$('reportNarrativeMount'),
+    monitorBreakpoint:$('monitorBreakpoint'), monitorDelta:$('monitorDelta'),
     metricGSAT:$('metricGSAT'), metricGRR:$('metricGRR'), metricTRM:$('metricTRM'), metricDelta:$('metricDelta'),
     snapshotGSAT:$('snapshotGSAT'), snapshotGRR:$('snapshotGRR'), snapshotTRM:$('snapshotTRM'),
     snapshotLatency:$('snapshotLatency'), snapshotVisibility:$('snapshotVisibility'), snapshotDependency:$('snapshotDependency'),
@@ -698,10 +698,6 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     <div class="eyebrow">Illustrative Strengthened State</div>
     <p>Implementation of targeted controls improves governance to <strong>GRR-${targetGRR}</strong> with GSAT <strong>${targetScore}/25</strong>, reducing transmission risk to <strong>${targetTRM}</strong>.</p>
   </div>
-  <div class="report-block">
-    <div class="eyebrow">Limitations of Illustrative Output</div>
-    <p>This output is illustrative and based on simulated inputs and directional assumptions. It does not constitute an independent supervisory assessment, validation, or formal opinion. Full HSCS Governance Stress Testing includes evidence review, calibration, and institution-specific analysis.</p>
-  </div>
 </div>`;
     }
 
@@ -741,34 +737,6 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     if(els.reportDeltaCallout){
       els.reportDeltaCallout.className = 'callout ' + deltaState.cls;
       els.reportDeltaCallout.textContent = `${deltaState.arrow} Δ ${delta} · Latency ${inputs.latencyHours.toFixed(1)}h · Visibility ${inputs.visibilityState} · Concentration ${Math.round(inputs.dependencyPct)}%`;
-    }
-
-    if(els.reportNarrativeMount){
-      els.reportNarrativeMount.innerHTML = `
-      <div class="report-block">
-        <div class="eyebrow">Executive Determination</div>
-        <p>Governance performance is assessed as <strong>GRR-${grr}</strong> with a GSAT score of <strong>${score}/25</strong> and transmission risk classified as <strong>${trm.txt}</strong>.</p>
-      </div>
-      <div class="report-block">
-        <div class="eyebrow">Governance Condition</div>
-        <p>Escalation latency of <strong>${inputs.latencyHours.toFixed(1)}h</strong>, exposure visibility at <strong>${inputs.visibilityState}</strong>, and dependency concentration of <strong>${Math.round(inputs.dependencyPct)}%</strong> define current governance effectiveness under simulated stress.</p>
-      </div>
-      <div class="report-block">
-        <div class="eyebrow">Stress Impact</div>
-        <p>Under stress conditions, governance shows <strong>${deltaState.text.toLowerCase()}</strong> with a deterioration of <strong>${deltaState.arrow} ${delta}</strong> points, driven by escalation delays, visibility gaps, and dependency structure.</p>
-      </div>
-      <div class="report-block">
-        <div class="eyebrow">Primary Structural Breakpoint</div>
-        <p>${breakpoint}</p>
-      </div>
-      <div class="report-block highlight">
-        <div class="eyebrow">Illustrative Strengthened State</div>
-        <p>Implementation of targeted controls improves governance to <strong>GRR-${targetGRR}</strong> with GSAT <strong>${targetScore}/25</strong>, reducing transmission risk to <strong>${targetTRM}</strong>.</p>
-      </div>
-      <div class="report-block">
-        <div class="eyebrow">Limitations of Illustrative Output</div>
-        <p>This output is illustrative and based on simulated inputs and directional assumptions. It does not constitute an independent supervisory assessment, validation, or formal opinion. Full HSCS Governance Stress Testing includes evidence review, calibration, and institution-specific analysis.</p>
-      </div>`;
     }
 
     if(els.monitorDelta) els.monitorDelta.textContent = `${deltaState.arrow} ${delta}`;
