@@ -256,3 +256,109 @@ button:hover, .btn:hover { transform: translateY(-2px); }
 @media (max-width: 640px) {
   .report-metrics, .snapshot-grid, .strengthened-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   ISRE Layout Replace Styles
+   ========================================================================== */
+
+.snapshot-card,
+.report-sheet,
+.strengthened-preview {
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.snapshot-grid,
+.report-metrics,
+.strengthened-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.snapshot-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+}
+
+.report-metrics {
+  grid-template-columns: repeat(4,1fr);
+  margin: 16px 0 18px;
+}
+
+.snapshot-item,
+.metric,
+.strengthened-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.snapshot-item .label,
+.metric .label,
+.strengthened-item .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.snapshot-item .value,
+.metric .value,
+.strengthened-item .value {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.snapshot-delta {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.report-section {
+  display: grid;
+  gap: 18px;
+}
+
+.report-block {
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.report-block.highlight {
+  background: rgba(80,120,255,0.08);
+  border-color: rgba(120,150,255,0.25);
+}
+
+.report-block p {
+  margin: 6px 0 0;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.report-header .report-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.report-header .report-sub {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .snapshot-grid,
+  .report-metrics,
+  .strengthened-grid {
+    grid-template-columns: 1fr;
+  }
+}
