@@ -1,3 +1,5 @@
+
+window.addEventListener('load', () => document.body.classList.add('loaded'));
 (function () {
   const $ = (id) => document.getElementById(id);
   const scenario = document.body.dataset.scenario || 'core';
