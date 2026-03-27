@@ -120,7 +120,38 @@
         <div class="subhead" style="margin-top:18px">Primary breakpoint</div>
         <div class="callout" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
         <div class="subhead" style="margin-top:18px">Interpretation</div>
-        <div class="callout" id="interpretation"></div>
+        
+<div class="report-metrics">
+  <div class="metric"><div class="label">GSAT</div><div class="value" id="metricGSAT">17</div></div>
+  <div class="metric"><div class="label">GRR</div><div class="value" id="metricGRR">C</div></div>
+  <div class="metric"><div class="label">TRM</div><div class="value" id="metricTRM">High</div></div>
+  <div class="metric"><div class="label">Δ Stress</div><div class="value" id="metricDelta">-4</div></div>
+</div>
+<div class="snapshot-card">
+  <div class="snapshot-head">
+    <div class="eyebrow">Assessment Snapshot</div>
+    <h3>Supervisory View</h3>
+  </div>
+  <div class="snapshot-grid">
+    <div class="snapshot-item"><div class="label">GSAT</div><div class="value" id="snapshotGSAT">17/25</div></div>
+    <div class="snapshot-item"><div class="label">GRR</div><div class="value" id="snapshotGRR">Vulnerable</div></div>
+    <div class="snapshot-item"><div class="label">TRM</div><div class="value" id="snapshotTRM">High</div></div>
+    <div class="snapshot-item"><div class="label">Latency</div><div class="value" id="snapshotLatency">4.5h</div></div>
+    <div class="snapshot-item"><div class="label">Visibility</div><div class="value" id="snapshotVisibility">T+1</div></div>
+    <div class="snapshot-item"><div class="label">Dependency</div><div class="value" id="snapshotDependency">68%</div></div>
+  </div>
+  <div class="snapshot-delta" id="snapshotDelta">↓ Δ -4 · Material deterioration</div>
+</div>
+<div class="strengthened-preview">
+  <div class="eyebrow">Illustrative strengthened state</div>
+  <div class="strengthened-grid">
+    <div class="strengthened-item"><div class="label">GSAT</div><div class="value" id="targetGSAT">22/25</div></div>
+    <div class="strengthened-item"><div class="label">GRR</div><div class="value" id="targetGRR">GRR-A</div></div>
+    <div class="strengthened-item"><div class="label">TRM</div><div class="value" id="targetTRM">Moderate</div></div>
+  </div>
+</div>
+
+<div class="callout" id="interpretation"></div>
       </div>
     </div>
   </div>
@@ -198,7 +229,7 @@
     <div class="monitor-grid">
       <div class="panel trend-card">
         <div class="subhead">Governance trend</div>
-        <div class="spark">
+        <div id="trendChart" class="spark trend-chart trend-adequate">
           <svg viewBox="0 0 600 220" preserveAspectRatio="none">
             <path d="M0 175 L600 175" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 135 L600 135" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 95 L600 95" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 55 L600 55" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
             <polyline fill="none" stroke="#7ea2ff" stroke-width="4" points="30,150 130,145 230,138 330,116 430,109 530,92"/>
@@ -240,6 +271,5 @@
     </div>
   </div>
 </section>
-<footer><div class="wrap">HSCS GSAT — governance stress simulator aligned to the quantitative model and supervisory reporting standard.</div></footer><script src="app.js"></script></body></html>
-<script src="scenario-intelligence.js"></script>
-<script src="app.js"></script>
+<footer><div class="wrap">HSCS GSAT — governance stress simulator aligned to the quantitative model and supervisory reporting standard.</div></footer><script src="scenario-intelligence.js"></script>
+<script src="app.js"></script></body></html>
