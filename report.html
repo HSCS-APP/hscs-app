@@ -1,10 +1,111 @@
 <!DOCTYPE html>
-<html><head><title>Report</title><link rel="stylesheet" href="styles.css"></head>
-<body>
-<h1>Supervisory Report</h1>
-<div id="r_score"></div>
-<div id="r_grr"></div>
-<div id="r_trm"></div>
-<script src="scenario-intelligence.js"></script>
-<script src="report.js"></script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSCS GSAT — Supervisory Report</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body.report-page{background:#08111f;color:#eef4ff}
+    .report-wrap{max-width:1180px;margin:0 auto;padding:28px 20px 56px}
+    .report-topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+    .report-brand{font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .report-subbrand{color:#9db0cf;font-size:12px;margin-top:4px}
+    .report-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .report-grid{display:grid;grid-template-columns:1.45fr .85fr;gap:16px}
+    .report-panel,.report-block{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+    .report-panel{padding:24px}
+    .report-block{padding:18px 20px}
+    .report-block + .report-block{margin-top:12px}
+    .eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9db0cf;font-weight:700}
+    h1{margin:10px 0 8px;font-size:36px;line-height:1.05;letter-spacing:-.03em}
+    h2{margin:6px 0 0;font-size:24px;line-height:1.1;letter-spacing:-.02em}
+    .lead{margin:0;color:#b6c3da;line-height:1.55;max-width:760px}
+    .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px}
+    .meta .label,.metric .label,.ind .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9db0cf;font-weight:700}
+    .meta .value{margin-top:4px;font-size:14px;font-weight:700}
+    .metrics{display:grid;gap:12px}
+    .metric,.ind{padding:15px 16px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .metric .value,.ind .value{margin-top:6px;font-size:24px;font-weight:800;letter-spacing:-.02em}
+    .section{margin-top:28px}
+    .section-head{margin-bottom:14px}
+    .indicator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stack{display:grid;gap:12px}
+    .report-list{margin:10px 0 0 18px;padding:0}
+    .report-list li{margin:6px 0}
+    .report-highlight{background:rgba(80,120,255,.08);border-color:rgba(120,150,255,.22)}
+    @media (max-width:980px){.report-grid{grid-template-columns:1fr}.indicator-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){h1{font-size:28px}.indicator-grid{grid-template-columns:1fr}.report-topbar{flex-direction:column}.report-wrap{padding:22px 14px 40px}}
+    @media print {.report-actions{display:none}.report-wrap{padding:0}.report-panel,.report-block,.metric,.ind{box-shadow:none}}
+  </style>
+</head>
+<body class="report-page">
+  <main class="report-wrap">
+    <div class="report-topbar">
+      <div>
+        <div class="report-brand">HSCS GSAT</div>
+        <div class="report-subbrand">Illustrative Supervisory Output</div>
+      </div>
+      <div class="report-actions">
+        <a class="btn secondary" href="index.html">Back to Simulation</a>
+        <button class="btn primary" type="button" onclick="window.print()">Print Report</button>
+      </div>
+    </div>
+
+    <section class="report-grid">
+      <div class="report-panel">
+        <div class="eyebrow">Governance Stress Test</div>
+        <h1 id="r_title">Governance Stress Test Report</h1>
+        <p id="r_subtitle" class="lead">Illustrative supervisory output based on simulated governance conditions.</p>
+        <div class="meta">
+          <div><div class="label">Scenario</div><div class="value" id="r_scenario">—</div></div>
+          <div><div class="label">Generated</div><div class="value" id="r_generated">—</div></div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="label">GSAT</div><div class="value" id="r_score">—</div></div>
+        <div class="metric"><div class="label">GRR</div><div class="value" id="r_grr">—</div></div>
+        <div class="metric"><div class="label">TRM</div><div class="value" id="r_trm">—</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 1</div><h2>Executive Summary</h2></div>
+      <div id="r_exec" class="report-block"></div>
+      <div id="r_findings" class="report-block"></div>
+      <div id="r_conclusion" class="report-block"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 2</div><h2>Quantitative Governance Indicators</h2></div>
+      <div class="indicator-grid">
+        <div class="ind"><div class="label">Escalation Latency</div><div class="value" id="r_latency">—</div></div>
+        <div class="ind"><div class="label">Exposure Visibility</div><div class="value" id="r_visibility">—</div></div>
+        <div class="ind"><div class="label">Dependency Concentration</div><div class="value" id="r_dependency">—</div></div>
+        <div class="ind"><div class="label">Stress Delta</div><div class="value" id="r_delta">—</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 3</div><h2>Primary Structural Breakpoint</h2></div>
+      <div id="r_breakpoint" class="report-block"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 4</div><h2>Structural Vulnerabilities</h2></div>
+      <div id="r_vulnerabilities" class="stack"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 5</div><h2>Illustrative Strengthened State</h2></div>
+      <div id="r_strengthened" class="report-block report-highlight"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="eyebrow">Section 6</div><h2>Limitations of Illustrative Output</h2></div>
+      <div class="report-block">This report is based on simulated inputs and indicative assumptions. It does not constitute an independent supervisory assessment, validation, or formal opinion. A full HSCS Governance Stress Test includes evidence review, calibration of scoring outcomes, and institution-specific control design and validation.</div>
+    </section>
+  </main>
+  <script src="report.js"></script>
+</body>
+</html>
