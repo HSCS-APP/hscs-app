@@ -88,7 +88,43 @@
         <div class="row-2">
           <div class="field" style="padding-top:0"><div class="field-top"><label for="latency">Escalation latency (hours)</label></div><div class="desc">Time from issue detection to senior decision point during stress.</div><input id="latency" type="number" min="0" max="72" step="0.5" value="3.5" /></div>
           <div class="field" style="padding-top:0"><div class="field-top"><label for="dependencyPct">Dependency concentration (%)</label></div><div class="desc">Reliance on key counterparties or providers.</div><input id="dependencyPct" type="number" min="0" max="100" step="1" value="68" /></div>
+        
+        <div class="left-intel-stack">
+          <div class="report-metrics">
+            <div class="metric"><div class="label">GSAT</div><div class="value" id="metricGSAT">17</div></div>
+            <div class="metric"><div class="label">GRR</div><div class="value" id="metricGRR">C</div></div>
+            <div class="metric"><div class="label">TRM</div><div class="value" id="metricTRM">High</div></div>
+            <div class="metric"><div class="label">Δ Stress</div><div class="value" id="metricDelta">-4</div></div>
+          </div>
+
+          <div class="snapshot-card">
+            <div class="snapshot-head">
+              <div class="eyebrow">Assessment Snapshot</div>
+              <h3>Supervisory View</h3>
+            </div>
+            <div class="snapshot-grid">
+              <div class="snapshot-item"><div class="label">GSAT</div><div class="value" id="snapshotGSAT">17/25</div></div>
+              <div class="snapshot-item"><div class="label">GRR</div><div class="value" id="snapshotGRR">Vulnerable</div></div>
+              <div class="snapshot-item"><div class="label">TRM</div><div class="value" id="snapshotTRM">High</div></div>
+              <div class="snapshot-item"><div class="label">Latency</div><div class="value" id="snapshotLatency">4.5h</div></div>
+              <div class="snapshot-item"><div class="label">Visibility</div><div class="value" id="snapshotVisibility">T+1</div></div>
+              <div class="snapshot-item"><div class="label">Dependency</div><div class="value" id="snapshotDependency">68%</div></div>
+            </div>
+            <div class="snapshot-delta" id="snapshotDelta">↓ Δ -4 · Material deterioration</div>
+          </div>
+
+          <div class="strengthened-preview">
+            <div class="eyebrow">Illustrative strengthened state</div>
+            <div class="strengthened-grid">
+              <div class="strengthened-item"><div class="label">GSAT</div><div class="value" id="targetGSAT">22/25</div></div>
+              <div class="strengthened-item"><div class="label">GRR</div><div class="value" id="targetGRR">GRR-A</div></div>
+              <div class="strengthened-item"><div class="label">TRM</div><div class="value" id="targetTRM">Moderate</div></div>
+            </div>
+          </div>
+
+          <div class="callout" id="interpretation"></div>
         </div>
+
       </div>
 
       <div class="panel">
@@ -110,48 +146,39 @@
         <div class="domain"><div class="domain-top"><div class="name">Product governance</div><div class="small-track"><span id="barPrd"></span></div><div id="barPrdT">4</div></div></div>
         <div class="domain"><div class="domain-top"><div class="name">Decision authority</div><div class="small-track"><span id="barDec"></span></div><div id="barDecT">3</div></div></div>
 
+        
         <div class="subhead" style="margin-top:18px">Governance stability under stress</div>
-        <div class="comparison">
-          <div class="compare-card"><h4>Baseline condition</h4><div class="big" id="baselineScore">21</div><div style="margin:8px 0 6px"><span class="pill green" id="baselineGRR">GRR-A</span></div><div style="color:var(--muted);line-height:1.5" id="baselineText">Governance remains stable under baseline operating conditions without additional stress amplification.</div></div>
-          <div class="compare-card"><h4>Stress condition</h4><div class="big" id="stressScore">17</div><div style="margin:8px 0 6px"><span class="pill orange" id="stressGRR">GRR-B</span></div><div style="color:var(--muted);line-height:1.5" id="stressText">Governance performance is assessed as vulnerable under the simulated stress conditions, with pressure observed across escalation, visibility, and dependency structures.</div></div>
+        <div class="callout delta-material" id="deltaCallout" style="margin-top:14px">↓ Δ -4 · Material deterioration under stress</div>
+
+        <div class="state-comparison-grid">
+          <div class="state-stack">
+            <div class="state-card">
+              <div class="eyebrow">Baseline Condition</div>
+              <div class="state-score-row">
+                <div class="state-score" id="baselineScore">21</div>
+                <div class="state-pill-wrap"><span class="pill green" id="baselineGRR">GRR-A</span></div>
+              </div>
+            </div>
+            <div class="state-text-box" id="baselineText">Governance remains stable under baseline operating conditions without additional stress amplification.</div>
+          </div>
+
+          <div class="state-stack">
+            <div class="state-card">
+              <div class="eyebrow">Stress Condition</div>
+              <div class="state-score-row">
+                <div class="state-score" id="stressScore">17</div>
+                <div class="state-pill-wrap"><span class="pill orange" id="stressGRR">GRR-B</span></div>
+              </div>
+            </div>
+            <div class="state-text-box" id="stressText">Governance performance is assessed as vulnerable under the simulated stress conditions, with pressure observed across escalation, visibility, and dependency structures.</div>
+          </div>
         </div>
 
-        <div class="callout delta-material" id="deltaCallout" style="margin-top:14px">↓ Δ -4 · Material deterioration under stress</div>
         <div class="subhead" style="margin-top:18px">Primary breakpoint</div>
-        <div class="callout" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
-        <div class="subhead" style="margin-top:18px">Interpretation</div>
-        
-<div class="report-metrics">
-  <div class="metric"><div class="label">GSAT</div><div class="value" id="metricGSAT">17</div></div>
-  <div class="metric"><div class="label">GRR</div><div class="value" id="metricGRR">C</div></div>
-  <div class="metric"><div class="label">TRM</div><div class="value" id="metricTRM">High</div></div>
-  <div class="metric"><div class="label">Δ Stress</div><div class="value" id="metricDelta">-4</div></div>
-</div>
-<div class="snapshot-card">
-  <div class="snapshot-head">
-    <div class="eyebrow">Assessment Snapshot</div>
-    <h3>Supervisory View</h3>
-  </div>
-  <div class="snapshot-grid">
-    <div class="snapshot-item"><div class="label">GSAT</div><div class="value" id="snapshotGSAT">17/25</div></div>
-    <div class="snapshot-item"><div class="label">GRR</div><div class="value" id="snapshotGRR">Vulnerable</div></div>
-    <div class="snapshot-item"><div class="label">TRM</div><div class="value" id="snapshotTRM">High</div></div>
-    <div class="snapshot-item"><div class="label">Latency</div><div class="value" id="snapshotLatency">4.5h</div></div>
-    <div class="snapshot-item"><div class="label">Visibility</div><div class="value" id="snapshotVisibility">T+1</div></div>
-    <div class="snapshot-item"><div class="label">Dependency</div><div class="value" id="snapshotDependency">68%</div></div>
-  </div>
-  <div class="snapshot-delta" id="snapshotDelta">↓ Δ -4 · Material deterioration</div>
-</div>
-<div class="strengthened-preview">
-  <div class="eyebrow">Illustrative strengthened state</div>
-  <div class="strengthened-grid">
-    <div class="strengthened-item"><div class="label">GSAT</div><div class="value" id="targetGSAT">22/25</div></div>
-    <div class="strengthened-item"><div class="label">GRR</div><div class="value" id="targetGRR">GRR-A</div></div>
-    <div class="strengthened-item"><div class="label">TRM</div><div class="value" id="targetTRM">Moderate</div></div>
-  </div>
-</div>
+        <div class="breakpoint-card">
+          <div class="breakpoint-copy" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
+        </div>
 
-<div class="callout" id="interpretation"></div>
       </div>
     </div>
   </div>
@@ -192,40 +219,34 @@
       </div>
 
       <div class="preview-pane">
-        
-<div class="report-sheet">
-  <div class="report-header">
-    <div class="report-title" id="reportTitle">Governance Stress Test Report</div>
-    <div class="report-sub">Illustrative supervisory output</div>
-  </div>
-
-  <div class="report-metrics">
-    <div class="metric">
-      <div class="label">GSAT</div>
-      <div class="value" id="sheetGSAT">—</div>
+        <div class="report-sheet">
+          <div class="report-line light report-w-36"></div>
+          <div class="report-line report-w-24"></div>
+          <div class="report-block">
+            <div class="report-line light report-w-24"></div>
+            <div class="report-kpis">
+              <div class="kpi"><div class="t">GSAT score</div><div class="n" id="sheetGSAT">17/25</div></div>
+              <div class="kpi"><div class="t">GRR</div><div class="n" id="sheetGRR">Vulnerable</div></div>
+              <div class="kpi"><div class="t">TRM</div><div class="n" id="sheetTRM">High</div></div>
+            </div>
+          </div>
+          <div class="report-block">
+            <div class="report-line light report-w-28"></div>
+            <div style="margin-top:10px;font-weight:700">Primary Structural Breakpoint</div>
+            <div id="reportBreakpoint" style="margin-top:8px;color:var(--muted);line-height:1.5">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
+          </div>
+          <div class="report-block"><div class="report-line light report-w-22"></div><div class="report-line report-w-88"></div><div class="report-line report-w-80"></div><div class="report-line report-w-62"></div></div>
+          <div class="report-block" style="opacity:.55"><div class="report-line light report-w-18"></div><div class="report-line report-w-90"></div><div class="report-line report-w-84"></div><div class="report-line report-w-58"></div></div>
+        </div>
+      </div>
     </div>
-    <div class="metric">
-      <div class="label">GRR</div>
-      <div class="value" id="sheetGRR">—</div>
-    </div>
-    <div class="metric">
-      <div class="label">TRM</div>
-      <div class="value" id="sheetTRM">—</div>
-    </div>
-    <div class="metric">
-      <div class="label">Δ Stress</div>
-      <div class="value" id="metricDelta">—</div>
-    </div>
-  </div>
-
-  <div id="reportNarrativeMount" class="report-section"></div>
-</div>
-<div id="evidenceBox" class="report-block"></div>
+    <div id="evidenceBox" class="report-block"></div>
 <div id="controlsBox" class="report-block"></div>
 <div id="impactBox" class="report-block"></div>
 <div class="report-note">Full GSAT assessments include supervisory calibration, evidence validation, and governance realignment.</div>
   </div>
 </section>
+
 
 <section id="monitoring">
   <div class="wrap">
@@ -246,19 +267,45 @@
           </svg>
         </div>
         <div class="legend"><span class="l1">GSAT score</span><span class="l2">Stress pressure</span><span class="l3">Dependency risk</span></div>
+        <div class="chart-caption" id="trendCaption">↓ Δ -4 · Material deterioration under stress</div>
       </div>
       <div class="panel">
         <div class="subhead">Dashboard outputs</div>
         <div class="metric-list">
-          <div class="metric-item"><div class="t">Current governance resilience</div><div class="v">17 / 25 · GRR-B</div></div>
+          <div class="metric-item"><div class="t">Current governance resilience</div><div class="v" id="monitorCurrent">17 / 25 · GRR-B</div></div>
           <div class="metric-item"><div class="t">Primary breakpoint</div><div class="v" id="monitorBreakpoint">Escalation & visibility</div></div>
           <div class="metric-item"><div class="t">Stress deterioration</div><div class="v" id="monitorDelta">Δ -4</div></div>
-          <div class="metric-item"><div class="t">Watch item</div><div class="v">Dependency concentration</div></div>
+          <div class="metric-item"><div class="t">Watch item</div><div class="v" id="monitorWatch">Dependency concentration</div></div>
+        </div>
+
+        <div class="subhead" style="margin-top:18px">Transmission profile</div>
+        <div class="transmission-chart">
+          <div class="transmission-row">
+            <span>Escalation</span>
+            <div class="transmission-bar"><span id="txEsc"></span></div>
+          </div>
+          <div class="transmission-row">
+            <span>Visibility</span>
+            <div class="transmission-bar"><span id="txVis"></span></div>
+          </div>
+          <div class="transmission-row">
+            <span>Dependency</span>
+            <div class="transmission-bar"><span id="txDep"></span></div>
+          </div>
+          <div class="transmission-row">
+            <span>Capital</span>
+            <div class="transmission-bar"><span id="txCap"></span></div>
+          </div>
+          <div class="transmission-row">
+            <span>Decision</span>
+            <div class="transmission-bar"><span id="txDec"></span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section id="method">
   <div class="wrap">
