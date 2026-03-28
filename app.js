@@ -1,4 +1,4 @@
- window.addEventListener('load', () => document.body.classList.add('loaded'));
+window.addEventListener('load', () => document.body.classList.add('loaded'));
 
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -778,5 +778,39 @@
         capturedAt: new Date().toISOString()
       };
     }
+  };
+})();
+
+/* Batch 2 dashboard enhancement */
+(function(){
+  if(typeof update !== 'function') return;
+  const prevUpdate = update;
+  update = function(){
+    prevUpdate();
+
+    const q = (id) => document.getElementById(id);
+    const score = parseInt(q('scoreOut')?.textContent || '17', 10);
+    const grr = q('grrPill')?.textContent || 'GRR-B';
+    const deltaText = q('deltaCallout')?.textContent || 'Δ -4';
+    const latency = parseFloat(q('latency')?.value || '3.5');
+    const visibilityRaw = parseFloat(q('visibility')?.value || '74');
+    const depRaw = parseFloat(q('dependencyPct')?.value || '68');
+    const cap = parseFloat(q('cap')?.value || '3');
+    const dec = parseFloat(q('dec')?.value || '3');
+
+    if(q('trendCaption')) q('trendCaption').textContent = deltaText;
+    if(q('monitorCurrent')) q('monitorCurrent').textContent = `${score} / 25 · ${grr}`;
+
+    const setTx = (id, value) => {
+      const el = q(id);
+      if(!el) return;
+      el.style.width = Math.max(8, Math.min(100, value)) + '%';
+    };
+
+    setTx('txEsc', latency > 4 ? 85 : latency > 2 ? 60 : 35);
+    setTx('txVis', visibilityRaw < 40 ? 85 : visibilityRaw < 70 ? 60 : 30);
+    setTx('txDep', Math.min(100, Math.round(depRaw)));
+    setTx('txCap', (6 - cap) * 18);
+    setTx('txDec', (6 - dec) * 18);
   };
 })();
