@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <style>html { background:#08111f; }</style>
@@ -192,28 +192,35 @@
       </div>
 
       <div class="preview-pane">
-        <div class="report-sheet">
-          <div class="report-line light report-w-36"></div>
-          <div class="report-line report-w-24"></div>
-          <div class="report-block">
-            <div class="report-line light report-w-24"></div>
-            <div class="report-kpis">
-              <div class="kpi"><div class="t">GSAT score</div><div class="n" id="sheetGSAT">17/25</div></div>
-              <div class="kpi"><div class="t">GRR</div><div class="n" id="sheetGRR">Vulnerable</div></div>
-              <div class="kpi"><div class="t">TRM</div><div class="n" id="sheetTRM">High</div></div>
-            </div>
-          </div>
-          <div class="report-block">
-            <div class="report-line light report-w-28"></div>
-            <div style="margin-top:10px;font-weight:700">Primary Structural Breakpoint</div>
-            <div id="reportBreakpoint" style="margin-top:8px;color:var(--muted);line-height:1.5">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
-          </div>
-          <div class="report-block"><div class="report-line light report-w-22"></div><div class="report-line report-w-88"></div><div class="report-line report-w-80"></div><div class="report-line report-w-62"></div></div>
-          <div class="report-block" style="opacity:.55"><div class="report-line light report-w-18"></div><div class="report-line report-w-90"></div><div class="report-line report-w-84"></div><div class="report-line report-w-58"></div></div>
-        </div>
-      </div>
+        
+<div class="report-sheet">
+  <div class="report-header">
+    <div class="report-title" id="reportTitle">Governance Stress Test Report</div>
+    <div class="report-sub">Illustrative supervisory output</div>
+  </div>
+
+  <div class="report-metrics">
+    <div class="metric">
+      <div class="label">GSAT</div>
+      <div class="value" id="sheetGSAT">—</div>
     </div>
-    <div id="evidenceBox" class="report-block"></div>
+    <div class="metric">
+      <div class="label">GRR</div>
+      <div class="value" id="sheetGRR">—</div>
+    </div>
+    <div class="metric">
+      <div class="label">TRM</div>
+      <div class="value" id="sheetTRM">—</div>
+    </div>
+    <div class="metric">
+      <div class="label">Δ Stress</div>
+      <div class="value" id="metricDelta">—</div>
+    </div>
+  </div>
+
+  <div id="reportNarrativeMount" class="report-section"></div>
+</div>
+<div id="evidenceBox" class="report-block"></div>
 <div id="controlsBox" class="report-block"></div>
 <div id="impactBox" class="report-block"></div>
 <div class="report-note">Full GSAT assessments include supervisory calibration, evidence validation, and governance realignment.</div>
