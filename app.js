@@ -52,7 +52,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     reportTargetScore:$('reportTargetScore'), reportTargetGRR:$('reportTargetGRR'), reportTargetTRM:$('reportTargetTRM'),
     reportTargetText:$('reportTargetText'), sheetGSAT:$('sheetGSAT'), sheetGRR:$('sheetGRR'), sheetTRM:$('sheetTRM'),
     reportBreakpoint:$('reportBreakpoint'), reportDeltaCallout:$('reportDeltaCallout'),
-    monitorBreakpoint:$('monitorBreakpoint'), monitorDelta:$('monitorDelta'),
+    monitorBreakpoint:$('monitorBreakpoint'), monitorDelta:$('monitorDelta'), reportNarrativeMount:$('reportNarrativeMount'),
     metricGSAT:$('metricGSAT'), metricGRR:$('metricGRR'), metricTRM:$('metricTRM'), metricDelta:$('metricDelta'),
     snapshotGSAT:$('snapshotGSAT'), snapshotGRR:$('snapshotGRR'), snapshotTRM:$('snapshotTRM'),
     snapshotLatency:$('snapshotLatency'), snapshotVisibility:$('snapshotVisibility'), snapshotDependency:$('snapshotDependency'),
@@ -98,10 +98,10 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
   }
 
   function grrText(grr){
-    return grr === 'A' ? 'GRR-A Â· Strong' :
-           grr === 'B' ? 'GRR-B Â· Adequate' :
-           grr === 'C' ? 'GRR-C Â· Vulnerable' :
-                         'GRR-D Â· Deficient';
+    return grr === 'A' ? 'GRR-A · Strong' :
+           grr === 'B' ? 'GRR-B · Adequate' :
+           grr === 'C' ? 'GRR-C · Vulnerable' :
+                         'GRR-D · Deficient';
   }
 
   function scoreToNorm(score){ return clamp((score - 1) / 4 * 100, 0, 100); }
@@ -237,7 +237,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     if(inputs.visibilityState === 'T+2'){ penalty += 0.25; hits.push('Exposure visibility worse than T+1'); }
     if(inputs.dependencyPct > 60){ penalty += 0.30; hits.push('Dependency concentration above 60%'); }
     if(!inputs.decisionAligned){ penalty += 0.20; hits.push('Misaligned decision rights'); }
-    if(!inputs.productClearingAligned){ penalty += 0.20; hits.push('Productâclearing disconnect'); }
+    if(!inputs.productClearingAligned){ penalty += 0.20; hits.push('Product–clearing disconnect'); }
     return { penalty: Math.min(penalty, 1.0), hits };
   }
 
@@ -264,11 +264,11 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
   }
 
   function getDeltaState(delta){
-    if(delta === 0) return {cls:'delta-neutral', arrow:'â', text:'Stable'};
-    if(delta > 0) return {cls:'delta-positive', arrow:'â', text:'Improving'};
-    if(delta <= -5) return {cls:'delta-severe', arrow:'â', text:'Severe deterioration'};
-    if(delta <= -3) return {cls:'delta-material', arrow:'â', text:'Material deterioration'};
-    return {cls:'delta-mild', arrow:'â', text:'Moderate deterioration'};
+    if(delta === 0) return {cls:'delta-neutral', arrow:'→', text:'Stable'};
+    if(delta > 0) return {cls:'delta-positive', arrow:'↑', text:'Improving'};
+    if(delta <= -5) return {cls:'delta-severe', arrow:'↓', text:'Severe deterioration'};
+    if(delta <= -3) return {cls:'delta-material', arrow:'↓', text:'Material deterioration'};
+    return {cls:'delta-mild', arrow:'↓', text:'Moderate deterioration'};
   }
 
   function getTrendState(score){
@@ -568,28 +568,28 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     <div class="report-section">
       <div class="report-block">
         <div class="eyebrow">Current State</div>
-        <p>GSAT ${gsAdj}/25 Â· GRR-${grr} Â· TRM ${trm.txt}</p>
+        <p>GSAT ${gsAdj}/25 · GRR-${grr} · TRM ${trm.txt}</p>
       </div>
       <div class="report-block highlight">
         <div class="eyebrow">Illustrative Strengthened State</div>
-        <p>GSAT ${impact.improvedScore}/25 Â· GRR-${impact.improvedGRR} Â· TRM ${impact.improvedTRM.txt}</p>
+        <p>GSAT ${impact.improvedScore}/25 · GRR-${impact.improvedGRR} · TRM ${impact.improvedTRM.txt}</p>
       </div>
       <div class="report-block">
         <div class="eyebrow">Metric-Level Changes</div>
         <ul class="report-list">
-          <li>Escalation latency: ${inputs.latencyHours.toFixed(1)}h â ${impact.improvedInputs.latencyHours.toFixed(1)}h</li>
-          <li>Exposure visibility: ${inputs.visibilityState} â ${impact.improvedInputs.visibilityState}</li>
-          <li>Dependency concentration: ${Math.round(inputs.dependencyPct)}% â ${Math.round(impact.improvedInputs.dependencyPct)}%</li>
+          <li>Escalation latency: ${inputs.latencyHours.toFixed(1)}h → ${impact.improvedInputs.latencyHours.toFixed(1)}h</li>
+          <li>Exposure visibility: ${inputs.visibilityState} → ${impact.improvedInputs.visibilityState}</li>
+          <li>Dependency concentration: ${Math.round(inputs.dependencyPct)}% → ${Math.round(impact.improvedInputs.dependencyPct)}%</li>
         </ul>
       </div>
       <div class="report-block">
         <div class="eyebrow">Domain-Level Uplift</div>
         <ul class="report-list">
-          <li>Escalation & Accountability: ${impact.currentDomains.SA}/5 â ${impact.improvedDomains.SA}/5 (${domainDelta.SA >= 0 ? '+' : ''}${domainDelta.SA})</li>
-          <li>Capital & Collateral Integrity: ${impact.currentDomains.CCI}/5 â ${impact.improvedDomains.CCI}/5 (${domainDelta.CCI >= 0 ? '+' : ''}${domainDelta.CCI})</li>
-          <li>Counterparty Dependency Risk: ${impact.currentDomains.CDR}/5 â ${impact.improvedDomains.CDR}/5 (${domainDelta.CDR >= 0 ? '+' : ''}${domainDelta.CDR})</li>
-          <li>Product Governance Alignment: ${impact.currentDomains.PGA}/5 â ${impact.improvedDomains.PGA}/5 (${domainDelta.PGA >= 0 ? '+' : ''}${domainDelta.PGA})</li>
-          <li>Audit & Decision Resilience: ${impact.currentDomains.ADR}/5 â ${impact.improvedDomains.ADR}/5 (${domainDelta.ADR >= 0 ? '+' : ''}${domainDelta.ADR})</li>
+          <li>Escalation & Accountability: ${impact.currentDomains.SA}/5 → ${impact.improvedDomains.SA}/5 (${domainDelta.SA >= 0 ? '+' : ''}${domainDelta.SA})</li>
+          <li>Capital & Collateral Integrity: ${impact.currentDomains.CCI}/5 → ${impact.improvedDomains.CCI}/5 (${domainDelta.CCI >= 0 ? '+' : ''}${domainDelta.CCI})</li>
+          <li>Counterparty Dependency Risk: ${impact.currentDomains.CDR}/5 → ${impact.improvedDomains.CDR}/5 (${domainDelta.CDR >= 0 ? '+' : ''}${domainDelta.CDR})</li>
+          <li>Product Governance Alignment: ${impact.currentDomains.PGA}/5 → ${impact.improvedDomains.PGA}/5 (${domainDelta.PGA >= 0 ? '+' : ''}${domainDelta.PGA})</li>
+          <li>Audit & Decision Resilience: ${impact.currentDomains.ADR}/5 → ${impact.improvedDomains.ADR}/5 (${domainDelta.ADR >= 0 ? '+' : ''}${domainDelta.ADR})</li>
         </ul>
       </div>
       <div class="report-block">
@@ -645,7 +645,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
 
     if(els.deltaCallout){
       els.deltaCallout.className = 'callout ' + deltaState.cls;
-      els.deltaCallout.textContent = `${deltaState.arrow} Î ${delta} Â· ${deltaState.text}`;
+      els.deltaCallout.textContent = `${deltaState.arrow} Δ ${delta} · ${deltaState.text}`;
     }
 
     if(els.trendChart) els.trendChart.className = 'trend-chart ' + trendState;
@@ -668,7 +668,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     if(els.snapshotDependency) els.snapshotDependency.textContent = `${Math.round(inputs.dependencyPct)}%`;
     if(els.snapshotDelta){
       els.snapshotDelta.className = 'snapshot-delta ' + deltaState.cls;
-      els.snapshotDelta.textContent = `${deltaState.arrow} Î ${delta} Â· ${deltaState.text}`;
+      els.snapshotDelta.textContent = `${deltaState.arrow} Δ ${delta} · ${deltaState.text}`;
     }
 
     if(els.targetGSAT) els.targetGSAT.textContent = `${targetScore}/25`;
@@ -698,6 +698,10 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     <div class="eyebrow">Illustrative Strengthened State</div>
     <p>Implementation of targeted controls improves governance to <strong>GRR-${targetGRR}</strong> with GSAT <strong>${targetScore}/25</strong>, reducing transmission risk to <strong>${targetTRM}</strong>.</p>
   </div>
+  <div class="report-block">
+    <div class="eyebrow">Limitations of Illustrative Output</div>
+    <p>This output is illustrative and based on simulated inputs and directional assumptions. It does not constitute an independent supervisory assessment, validation, or formal opinion. Full HSCS Governance Stress Testing includes evidence review, calibration, and institution-specific analysis.</p>
+  </div>
 </div>`;
     }
 
@@ -706,7 +710,7 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
     if(els.heroVisibility) els.heroVisibility.textContent = inputs.visibilityState;
     if(els.heroDependency) els.heroDependency.textContent = `${Math.round(inputs.dependencyPct)}%`;
     if(els.heroGRR){ els.heroGRR.textContent = grrText(grr); els.heroGRR.className = 'pill ' + pillClass(grr); }
-    if(els.heroTRM){ els.heroTRM.textContent = 'TRM Â· ' + trm.txt; els.heroTRM.className = 'pill ' + trm.cls; }
+    if(els.heroTRM){ els.heroTRM.textContent = 'TRM · ' + trm.txt; els.heroTRM.className = 'pill ' + trm.cls; }
 
     if(els.baselineScore) els.baselineScore.textContent = baselineScore;
     if(els.baselineGRR){
@@ -736,7 +740,35 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
 
     if(els.reportDeltaCallout){
       els.reportDeltaCallout.className = 'callout ' + deltaState.cls;
-      els.reportDeltaCallout.textContent = `${deltaState.arrow} Î ${delta} Â· Latency ${inputs.latencyHours.toFixed(1)}h Â· Visibility ${inputs.visibilityState} Â· Concentration ${Math.round(inputs.dependencyPct)}%`;
+      els.reportDeltaCallout.textContent = `${deltaState.arrow} Δ ${delta} · Latency ${inputs.latencyHours.toFixed(1)}h · Visibility ${inputs.visibilityState} · Concentration ${Math.round(inputs.dependencyPct)}%`;
+    }
+
+    if(els.reportNarrativeMount){
+      els.reportNarrativeMount.innerHTML = `
+      <div class="report-block">
+        <div class="eyebrow">Executive Determination</div>
+        <p>Governance performance is assessed as <strong>GRR-${grr}</strong> with a GSAT score of <strong>${score}/25</strong> and transmission risk classified as <strong>${trm.txt}</strong>.</p>
+      </div>
+      <div class="report-block">
+        <div class="eyebrow">Governance Condition</div>
+        <p>Escalation latency of <strong>${inputs.latencyHours.toFixed(1)}h</strong>, exposure visibility at <strong>${inputs.visibilityState}</strong>, and dependency concentration of <strong>${Math.round(inputs.dependencyPct)}%</strong> define current governance effectiveness under simulated stress.</p>
+      </div>
+      <div class="report-block">
+        <div class="eyebrow">Stress Impact</div>
+        <p>Under stress conditions, governance shows <strong>${deltaState.text.toLowerCase()}</strong> with a deterioration of <strong>${deltaState.arrow} ${delta}</strong> points, driven by escalation delays, visibility gaps, and dependency structure.</p>
+      </div>
+      <div class="report-block">
+        <div class="eyebrow">Primary Structural Breakpoint</div>
+        <p>${breakpoint}</p>
+      </div>
+      <div class="report-block highlight">
+        <div class="eyebrow">Illustrative Strengthened State</div>
+        <p>Implementation of targeted controls improves governance to <strong>GRR-${targetGRR}</strong> with GSAT <strong>${targetScore}/25</strong>, reducing transmission risk to <strong>${targetTRM}</strong>.</p>
+      </div>
+      <div class="report-block">
+        <div class="eyebrow">Limitations of Illustrative Output</div>
+        <p>This output is illustrative and based on simulated inputs and directional assumptions. It does not constitute an independent supervisory assessment, validation, or formal opinion. Full HSCS Governance Stress Testing includes evidence review, calibration, and institution-specific analysis.</p>
+      </div>`;
     }
 
     if(els.monitorDelta) els.monitorDelta.textContent = `${deltaState.arrow} ${delta}`;
@@ -778,43 +810,5 @@ window.addEventListener('load', () => document.body.classList.add('loaded'));
         capturedAt: new Date().toISOString()
       };
     }
-  };
-})();
-
-// Pass F layout correction sync
-(function(){
-  const _prevUpdate = typeof update === 'function' ? update : null;
-  if(!_prevUpdate) return;
-  update = function(){
-    _prevUpdate();
-
-    const baselineEl = document.getElementById('baselineScore');
-    const stressEl = document.getElementById('stressScore');
-    const deltaMain = document.getElementById('deltaMain');
-    if(deltaMain && baselineEl && stressEl){
-      const baseline = parseInt(baselineEl.textContent || '21', 10);
-      const stress = parseInt(stressEl.textContent || '17', 10);
-      const delta = stress - baseline;
-
-      let deltaClass = 'delta-material';
-      let deltaText = 'Material deterioration';
-      if(delta === 0){ deltaClass = 'delta-neutral'; deltaText = 'No material deterioration'; }
-      else if(delta > 0){ deltaClass = 'delta-positive'; deltaText = 'Improvement under current conditions'; }
-      else if(delta <= -5){ deltaClass = 'delta-severe'; deltaText = 'Severe deterioration'; }
-      else if(delta >= -2){ deltaClass = 'delta-mild'; deltaText = 'Moderate deterioration'; }
-
-      deltaMain.textContent = `${delta > 0 ? 'â' : delta === 0 ? 'â' : 'â'} Î ${delta} Â· ${deltaText}`;
-      deltaMain.className = 'delta-main ' + deltaClass;
-    }
-
-    const lat = document.getElementById('latency');
-    const vis = document.getElementById('visibility');
-    const dep = document.getElementById('dependencyPct');
-    const deltaLatency = document.getElementById('deltaLatency');
-    const deltaVisibility = document.getElementById('deltaVisibility');
-    const deltaDependency = document.getElementById('deltaDependency');
-    if(deltaLatency && lat) deltaLatency.textContent = `${lat.value}h`;
-    if(deltaVisibility && vis) deltaVisibility.textContent = `${vis.value}%`;
-    if(deltaDependency && dep) deltaDependency.textContent = `${dep.value}%`;
   };
 })();
