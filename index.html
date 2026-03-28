@@ -88,6 +88,25 @@
         <div class="row-2">
           <div class="field" style="padding-top:0"><div class="field-top"><label for="latency">Escalation latency (hours)</label></div><div class="desc">Time from issue detection to senior decision point during stress.</div><input id="latency" type="number" min="0" max="72" step="0.5" value="3.5" /></div>
           <div class="field" style="padding-top:0"><div class="field-top"><label for="dependencyPct">Dependency concentration (%)</label></div><div class="desc">Reliance on key counterparties or providers.</div><input id="dependencyPct" type="number" min="0" max="100" step="1" value="68" /></div>
+        
+        <div class="delta-driver-card" id="deltaDriverCard">
+          <div class="eyebrow">Stress Driver Summary</div>
+          <div class="delta-main delta-material" id="deltaMain">↓ Δ -4 · Material deterioration</div>
+
+          <div class="delta-driver-line">
+            <span>Latency</span>
+            <strong id="deltaLatency">3.5h</strong>
+          </div>
+
+          <div class="delta-driver-line">
+            <span>Visibility</span>
+            <strong id="deltaVisibility">74%</strong>
+          </div>
+
+          <div class="delta-driver-line">
+            <span>Dependency</span>
+            <strong id="deltaDependency">68%</strong>
+          </div>
         </div>
       </div>
 
@@ -95,9 +114,6 @@
         <div class="score-top">
           <div class="score-box"><div class="label">GSAT score</div><div class="big"><span id="scoreOut">17</span><span class="score-denom">/25</span></div><div id="grrPill" class="pill orange">GRR-B · Adequate</div></div>
           <div class="score-box"><div class="label">Transmission risk modifier</div><div class="big small" id="trmOut">High</div><div id="trmPill" class="pill red">Cross-system propagation</div></div>
-        </div>
-        <div class="report-cta" style="margin-top:14px">
-          <button class="btn primary" type="button" onclick="openReportView()">View Supervisory Report</button>
         </div>
 
         <div class="subhead">Governance resilience rating</div>
@@ -113,17 +129,46 @@
         <div class="domain"><div class="domain-top"><div class="name">Product governance</div><div class="small-track"><span id="barPrd"></span></div><div id="barPrdT">4</div></div></div>
         <div class="domain"><div class="domain-top"><div class="name">Decision authority</div><div class="small-track"><span id="barDec"></span></div><div id="barDecT">3</div></div></div>
 
+        
         <div class="subhead" style="margin-top:18px">Governance stability under stress</div>
-        <div class="comparison">
-          <div class="compare-card"><h4>Baseline condition</h4><div class="big" id="baselineScore">21</div><div style="margin:8px 0 6px"><span class="pill green" id="baselineGRR">GRR-A</span></div><div style="color:var(--muted);line-height:1.5" id="baselineText">Governance remains stable under baseline operating conditions without additional stress amplification.</div></div>
-          <div class="compare-card"><h4>Stress condition</h4><div class="big" id="stressScore">17</div><div style="margin:8px 0 6px"><span class="pill orange" id="stressGRR">GRR-B</span></div><div style="color:var(--muted);line-height:1.5" id="stressText">Governance performance is assessed as vulnerable under the simulated stress conditions, with pressure observed across escalation, visibility, and dependency structures.</div></div>
+
+        <div class="state-comparison-grid">
+
+          <div class="state-stack">
+            <div class="state-card">
+              <div class="eyebrow">Baseline Condition</div>
+              <div class="state-score-row">
+                <div class="state-score" id="baselineScore">21</div>
+                <div class="state-pill"><span class="pill green" id="baselineGRR">GRR-A</span></div>
+              </div>
+            </div>
+
+            <div class="state-text-box" id="baselineText">
+              Governance remains stable under baseline operating conditions without additional stress amplification.
+            </div>
+          </div>
+
+          <div class="state-stack">
+            <div class="state-card">
+              <div class="eyebrow">Stress Condition</div>
+              <div class="state-score-row">
+                <div class="state-score" id="stressScore">17</div>
+                <div class="state-pill"><span class="pill orange" id="stressGRR">GRR-B</span></div>
+              </div>
+            </div>
+
+            <div class="state-text-box" id="stressText">
+              Governance performance deteriorates under stress due to escalation delay, reduced visibility, and dependency concentration.
+            </div>
+          </div>
+
         </div>
 
-        <div class="callout delta-material" id="deltaCallout" style="margin-top:14px">↓ Δ -4 · Material deterioration under stress</div>
         <div class="subhead" style="margin-top:18px">Primary breakpoint</div>
-        <div class="callout" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
-        <div class="subhead" style="margin-top:18px">Interpretation</div>
-        <div class="callout" id="interpretation"></div>
+        <div class="breakpoint-card">
+          <div class="breakpoint-copy" id="breakpointBox">Governance fracture emerges across visibility, escalation, and dependency layers.</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -201,7 +246,7 @@
     <div class="monitor-grid">
       <div class="panel trend-card">
         <div class="subhead">Governance trend</div>
-        <div class="spark">
+        <div id="trendChart" class="spark trend-chart trend-adequate">
           <svg viewBox="0 0 600 220" preserveAspectRatio="none">
             <path d="M0 175 L600 175" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 135 L600 135" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 95 L600 95" stroke="rgba(255,255,255,.07)" stroke-width="1"/><path d="M0 55 L600 55" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
             <polyline fill="none" stroke="#7ea2ff" stroke-width="4" points="30,150 130,145 230,138 330,116 430,109 530,92"/>
@@ -243,4 +288,5 @@
     </div>
   </div>
 </section>
-<footer><div class="wrap">HSCS GSAT — governance stress simulator aligned to the quantitative model and supervisory reporting standard.</div></footer><script src="app.js"></script></body></html>
+<footer><div class="wrap">HSCS GSAT — governance stress simulator aligned to the quantitative model and supervisory reporting standard.</div></footer><script src="scenario-intelligence.js"></script>
+<script src="app.js"></script></body></html>
